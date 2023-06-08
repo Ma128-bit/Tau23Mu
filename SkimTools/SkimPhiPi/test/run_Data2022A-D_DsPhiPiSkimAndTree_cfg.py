@@ -19,7 +19,9 @@ process.load('SkimTools.SkimPhiPi.DsPhiPiMuMuPi_miniAOD_cff')
 
 #process.GlobalTag.globaltag = '102X_dataRun2_v13' #data_rereco 2018 A-C 
 #process.GlobalTag.globaltag = '124X_dataRun3_Prompt_v4' #data_reco 2022 B-D
-process.GlobalTag.globaltag = '124X_dataRun3_PromptAnalysis_v1' #data_reco 2022 A-D w/ updated JEC/JR corrections
+#process.GlobalTag.globaltag = '124X_dataRun3_PromptAnalysis_v1' #data_reco 2022 A-D w/ updated JEC/JR corrections
+process.GlobalTag.globaltag = '124X_dataRun3_v11'
+
 process.maxEvents = cms.untracked.PSet( input = cms.untracked.int32(-1) )
 
 process.source = cms.Source("PoolSource",

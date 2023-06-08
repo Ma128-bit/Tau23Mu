@@ -24,7 +24,12 @@ process.maxEvents = cms.untracked.PSet( input = cms.untracked.int32(-1) )
 process.source = cms.Source("PoolSource",
     fileNames = cms.untracked.vstring(
         #Official MC DsPhiPi 2018 rereco --> /DsToPhiPi_ToMuMu_MuFilter_TuneCP5_13TeV-pythia8/RunIIAutumn18MiniAOD-102X_upgrade2018_realistic_v15-v1/MINIAODSIM
-            'root://xrootd-cms.infn.it//store/user/caruta/Pythia8_DsPhiPi_MuMuPi_Run3_2022/124X_mcRun3_2022_realistic_v12_MINIAODSIM/221117_080521/0000/DsPhiPi_2022_step2_1.root'
+            'store/user/caruta/Pythia8_DsPhiPi_MuMuPi_Run3_2022/124X_mcRun3_2022_realistic_v12_MINIAODSIM/221117_080521/0000/DsPhiPi_2022_step2_1.root',
+            'store/user/caruta/Pythia8_DsPhiPi_MuMuPi_Run3_2022/124X_mcRun3_2022_realistic_v12_MINIAODSIM/221117_080521/0000/DsPhiPi_2022_step2_536.root',
+            'store/user/caruta/Pythia8_DsPhiPi_MuMuPi_Run3_2022/124X_mcRun3_2022_realistic_v12_MINIAODSIM/221117_080521/0000/DsPhiPi_2022_step2_56.root',
+            'store/user/caruta/Pythia8_DsPhiPi_MuMuPi_Run3_2022/124X_mcRun3_2022_realistic_v12_MINIAODSIM/221117_080521/0000/DsPhiPi_2022_step2_53.root',
+            'store/user/caruta/Pythia8_DsPhiPi_MuMuPi_Run3_2022/124X_mcRun3_2022_realistic_v12_MINIAODSIM/221117_080521/0000/DsPhiPi_2022_step2_6.root',
+            'store/user/caruta/Pythia8_DsPhiPi_MuMuPi_Run3_2022/124X_mcRun3_2022_realistic_v12_MINIAODSIM/221117_080521/0000/DsPhiPi_2022_step2_36.root'
 	)
 )
 
