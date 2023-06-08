@@ -1,3 +1,5 @@
+crab submit -c crab_DsPhiPi_reco2022_RunG_stream0_cfg.py
+sleep 20
 crab submit -c crab_DsPhiPi_reco2022_RunG_stream1_cfg.py
 sleep 20
 crab submit -c crab_DsPhiPi_reco2022_RunG_stream2_cfg.py
