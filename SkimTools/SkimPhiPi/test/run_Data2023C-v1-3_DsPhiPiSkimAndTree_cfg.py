@@ -17,14 +17,14 @@ process.load('Configuration.StandardSequences.EndOfProcess_cff')
 #process.load('DsPhiPiTreeMaker.DsPhiPiTreeMaker.DsPhiPiMuMuPi_BParking_cff')
 process.load('SkimTools.SkimPhiPi.DsPhiPiMuMuPi_miniAOD_cff')
 
-process.GlobalTag.globaltag = '130X_dataRun3_Prompt_v2' #2023 era B tag
+process.GlobalTag.globaltag = '130X_dataRun3_Prompt_v3' #2023 era C tag
 
 process.maxEvents = cms.untracked.PSet( input = cms.untracked.int32(-1) )
 
 process.source = cms.Source("PoolSource",
     fileNames = cms.untracked.vstring(
         #data2018A --> /DoubleMuonLowMass/Run2018A-17Sep2018-v1/MINIAOD
-        'root://xrootd-cms.infn.it///store/data/Run2023B/ParkingDoubleMuonLowMass0/MINIAOD/PromptReco-v1/000/366/442/00000/77993198-8548-4532-83bc-7b2a8863c9b9.root'
+        'root://xrootd-cms.infn.it///store/data/Run2023C/ParkingDoubleMuonLowMass0/MINIAOD/PromptReco-v1/000/367/095/00000/17daeee9-6838-4c2f-8446-f8c5598909e6.root'
 	)
 )
 
