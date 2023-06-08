@@ -288,7 +288,7 @@ private:
     std::vector<double> MuonPt_HLT_DiMu_Incl_displ, MuonEta_HLT_DiMu_Incl_displ, MuonPhi_HLT_DiMu_Incl_displ;
     std::vector<double> MuonPt_HLT_Dimuon, MuonEta_HLT_Dimuon, MuonPhi_HLT_Dimuon;
  
-    std::vector<double> Muon_innerTrack_ValidFraction, Muon_innerTrack_highPurity, Muon_Numberofvalidtrackerhits, Muon_SoftMVA_Val,Muon_validMuonHitComb;
+    std::vector<double> Muon_innerTrack_ValidFraction, Muon_innerTrack_highPurity, Muon_Numberofvalidtrackerhits, Muon_MVA, Muon_SoftMVA_Val,Muon_validMuonHitComb;
     
     std::vector<double>  DistXY_PVSV,  DistXY_significance_PVSV;
     std::vector<double>  Triplet_IsoMu3, Triplet_IsoMu2, Triplet_IsoMu1;
@@ -1690,7 +1690,7 @@ DsPhiPiTreeMakerMINI::analyze(const edm::Event& iEvent, const edm::EventSetup& i
         Muon_numberOfMatchedStations.push_back(mu->numberOfMatchedStations());
         Muon_numberOfMatches.push_back(mu->numberOfMatches(reco::Muon::SegmentArbitration));
         Muon_SoftMVA_Val.push_back(mu->softMvaValue());
-        
+        Muon_MVA.push_back(mu->mvaValue());
         Muon_timeAtIpInOut.push_back(mu->time().timeAtIpInOut);
         Muon_timeAtIpInOutErr.push_back(mu->time().timeAtIpInOutErr);
         
@@ -1985,7 +1985,8 @@ DsPhiPiTreeMakerMINI::analyze(const edm::Event& iEvent, const edm::EventSetup& i
     Muon_numberOfMatchedStations.clear();
     Muon_numberOfMatches.clear();
     Muon_SoftMVA_Val.clear();
-    
+    Muon_MVA.clear();
+
     //MuonTime
     Muon_timeAtIpInOut.clear();
     Muon_timeAtIpInOutErr.clear();
@@ -2376,7 +2377,8 @@ void DsPhiPiTreeMakerMINI::beginJob() {
     tree_->Branch("Muon_numberOfMatchedStations", &Muon_numberOfMatchedStations);
     tree_->Branch("Muon_numberOfMatches", &Muon_numberOfMatches);
     tree_->Branch("Muon_SoftMVA_Val", &Muon_SoftMVA_Val);
-    
+    tree_->Branch("Muon_MVA", &Muon_MVA);
+
     tree_->Branch("Muon_timeAtIpInOut",&Muon_timeAtIpInOut);
     tree_->Branch("Muon_timeAtIpInOutErr",&Muon_timeAtIpInOutErr);
     //Muon inner + outer track
