@@ -1,0 +1,94 @@
+DEBUG 2023-05-04 13:48:49.195 UTC: 	 CRAB Client version: v3.230417
+DEBUG 2023-05-04 13:48:49.195 UTC: 	 Running on: Linux ui03.recas.ba.infn.it 3.10.0-1160.80.1.el7.x86_64 #1 SMP Tue Nov 8 15:48:59 UTC 2022 x86_64 x86_64 x86_64 GNU/Linux - CentOS Linux 7 (Core)
+DEBUG 2023-05-04 13:48:49.195 UTC: 	 Executing command: 'submit'
+DEBUG 2023-05-04 13:48:49.196 UTC: 	 Found CRAB cache file /lustrehome/mbuonsante/.crab3
+INFO 2023-05-04 13:48:49.197 UTC: 	 Will use CRAB configuration file crab_DsTau3mu_reco2022_RunC_stream0_cfg.py
+DEBUG 2023-05-04 13:48:49.197 UTC: 	 Loading CRAB configuration file.
+ERROR 2023-05-04 13:48:49.202 UTC: 	 Invalid CRAB configuration: In case of Automatic splitting, the Data.unitsPerJob parameter must be in the [180, 2700] minutes range. You asked for 50 minutes.
+The documentation about the CRAB configuration file can be found in https://twiki.cern.ch/twiki/bin/view/CMSPublic/CRAB3ConfigurationFile
+ERROR 2023-05-04 13:48:49.202 UTC: 	 Caught ClientException exception
+Traceback (most recent call last):
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.230417.00/bin/crab.py", line 159, in <module>
+    client()
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.230417.00/bin/crab.py", line 144, in __call__
+    self.cmd = sub_cmd(self.logger, args[1:])
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.230417.00/lib/CRABClient/Commands/submit.py", line 36, in __init__
+    SubCommand.__init__(self, logger, cmdargs, disable_interspersed_args=True)
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.230417.00/lib/CRABClient/Commands/SubCommand.py", line 316, in __init__
+    self.loadConfig(self.options.config, self.args)
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.230417.00/lib/CRABClient/Commands/SubCommand.py", line 94, in loadConfig
+    raise ConfigurationException(configmsg)
+CRABClient.ClientExceptions.ConfigurationException: Invalid CRAB configuration: In case of Automatic splitting, the Data.unitsPerJob parameter must be in the [180, 2700] minutes range. You asked for 50 minutes.
+The documentation about the CRAB configuration file can be found in https://twiki.cern.ch/twiki/bin/view/CMSPublic/CRAB3ConfigurationFile
+INFO 2023-05-04 13:48:49.205 UTC: 	 Log file is /lustrehome/mbuonsante/Tau_3mu/CMSSW_12_4_11_patch3/src/CrabSubmission/Data/SkimTau3mu/reco2022_RunC/crab.log
+DEBUG 2023-05-04 13:49:10.444 UTC: 	 CRAB Client version: v3.230417
+DEBUG 2023-05-04 13:49:10.444 UTC: 	 Running on: Linux ui03.recas.ba.infn.it 3.10.0-1160.80.1.el7.x86_64 #1 SMP Tue Nov 8 15:48:59 UTC 2022 x86_64 x86_64 x86_64 GNU/Linux - CentOS Linux 7 (Core)
+DEBUG 2023-05-04 13:49:10.444 UTC: 	 Executing command: 'submit'
+DEBUG 2023-05-04 13:49:10.444 UTC: 	 Found CRAB cache file /lustrehome/mbuonsante/.crab3
+INFO 2023-05-04 13:49:10.445 UTC: 	 Will use CRAB configuration file crab_DsTau3mu_reco2022_RunC_stream1_cfg.py
+DEBUG 2023-05-04 13:49:10.445 UTC: 	 Loading CRAB configuration file.
+ERROR 2023-05-04 13:49:10.449 UTC: 	 Invalid CRAB configuration: In case of Automatic splitting, the Data.unitsPerJob parameter must be in the [180, 2700] minutes range. You asked for 50 minutes.
+The documentation about the CRAB configuration file can be found in https://twiki.cern.ch/twiki/bin/view/CMSPublic/CRAB3ConfigurationFile
+ERROR 2023-05-04 13:49:10.449 UTC: 	 Caught ClientException exception
+Traceback (most recent call last):
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.230417.00/bin/crab.py", line 159, in <module>
+    client()
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.230417.00/bin/crab.py", line 144, in __call__
+    self.cmd = sub_cmd(self.logger, args[1:])
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.230417.00/lib/CRABClient/Commands/submit.py", line 36, in __init__
+    SubCommand.__init__(self, logger, cmdargs, disable_interspersed_args=True)
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.230417.00/lib/CRABClient/Commands/SubCommand.py", line 316, in __init__
+    self.loadConfig(self.options.config, self.args)
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.230417.00/lib/CRABClient/Commands/SubCommand.py", line 94, in loadConfig
+    raise ConfigurationException(configmsg)
+CRABClient.ClientExceptions.ConfigurationException: Invalid CRAB configuration: In case of Automatic splitting, the Data.unitsPerJob parameter must be in the [180, 2700] minutes range. You asked for 50 minutes.
+The documentation about the CRAB configuration file can be found in https://twiki.cern.ch/twiki/bin/view/CMSPublic/CRAB3ConfigurationFile
+INFO 2023-05-04 13:49:10.452 UTC: 	 Log file is /lustrehome/mbuonsante/Tau_3mu/CMSSW_12_4_11_patch3/src/CrabSubmission/Data/SkimTau3mu/reco2022_RunC/crab.log
+DEBUG 2023-05-04 13:52:24.572 UTC: 	 CRAB Client version: v3.230417
+DEBUG 2023-05-04 13:52:24.573 UTC: 	 Running on: Linux ui03.recas.ba.infn.it 3.10.0-1160.80.1.el7.x86_64 #1 SMP Tue Nov 8 15:48:59 UTC 2022 x86_64 x86_64 x86_64 GNU/Linux - CentOS Linux 7 (Core)
+DEBUG 2023-05-04 13:52:24.573 UTC: 	 Executing command: 'submit'
+DEBUG 2023-05-04 13:52:24.573 UTC: 	 Found CRAB cache file /lustrehome/mbuonsante/.crab3
+INFO 2023-05-04 13:52:24.574 UTC: 	 Will use CRAB configuration file crab_DsTau3mu_reco2022_RunC_stream0_cfg.py
+DEBUG 2023-05-04 13:52:24.574 UTC: 	 Loading CRAB configuration file.
+DEBUG 2023-05-04 13:52:24.575 UTC: 	 Will use CRAB Analysis plugin (i.e. will run an analysis job type).
+ERROR 2023-05-04 13:52:24.575 UTC: 	 Working area '/lustrehome/mbuonsante/Tau_3mu/CMSSW_12_4_11_patch3/src/CrabSubmission/Data/SkimTau3mu/reco2022_RunC/crab_projects/crab_SkimDsTau3mu_2022eraC_stream0_Mini_v3' already exists 
+Please change the requestName in the config file
+ERROR 2023-05-04 13:52:24.575 UTC: 	 Caught ClientException exception
+Traceback (most recent call last):
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.230417.00/bin/crab.py", line 159, in <module>
+    client()
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.230417.00/bin/crab.py", line 144, in __call__
+    self.cmd = sub_cmd(self.logger, args[1:])
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.230417.00/lib/CRABClient/Commands/submit.py", line 36, in __init__
+    SubCommand.__init__(self, logger, cmdargs, disable_interspersed_args=True)
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.230417.00/lib/CRABClient/Commands/SubCommand.py", line 318, in __init__
+    self.requestarea, self.requestname, self.logfile = createWorkArea(
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.230417.00/lib/CRABClient/ClientUtilities.py", line 387, in createWorkArea
+    raise ConfigException("Working area '%s' already exists \nPlease change the requestName in the config file" % fullpath)
+CRABClient.ClientExceptions.ConfigException: Working area '/lustrehome/mbuonsante/Tau_3mu/CMSSW_12_4_11_patch3/src/CrabSubmission/Data/SkimTau3mu/reco2022_RunC/crab_projects/crab_SkimDsTau3mu_2022eraC_stream0_Mini_v3' already exists 
+Please change the requestName in the config file
+INFO 2023-05-04 13:52:24.581 UTC: 	 Log file is /lustrehome/mbuonsante/Tau_3mu/CMSSW_12_4_11_patch3/src/CrabSubmission/Data/SkimTau3mu/reco2022_RunC/crab.log
+DEBUG 2023-05-04 13:52:45.817 UTC: 	 CRAB Client version: v3.230417
+DEBUG 2023-05-04 13:52:45.817 UTC: 	 Running on: Linux ui03.recas.ba.infn.it 3.10.0-1160.80.1.el7.x86_64 #1 SMP Tue Nov 8 15:48:59 UTC 2022 x86_64 x86_64 x86_64 GNU/Linux - CentOS Linux 7 (Core)
+DEBUG 2023-05-04 13:52:45.817 UTC: 	 Executing command: 'submit'
+DEBUG 2023-05-04 13:52:45.818 UTC: 	 Found CRAB cache file /lustrehome/mbuonsante/.crab3
+INFO 2023-05-04 13:52:45.818 UTC: 	 Will use CRAB configuration file crab_DsTau3mu_reco2022_RunC_stream1_cfg.py
+DEBUG 2023-05-04 13:52:45.818 UTC: 	 Loading CRAB configuration file.
+DEBUG 2023-05-04 13:52:45.819 UTC: 	 Will use CRAB Analysis plugin (i.e. will run an analysis job type).
+ERROR 2023-05-04 13:52:45.820 UTC: 	 Working area '/lustrehome/mbuonsante/Tau_3mu/CMSSW_12_4_11_patch3/src/CrabSubmission/Data/SkimTau3mu/reco2022_RunC/crab_projects/crab_SkimDsTau3mu_2022eraC_stream1_Mini_v3' already exists 
+Please change the requestName in the config file
+ERROR 2023-05-04 13:52:45.820 UTC: 	 Caught ClientException exception
+Traceback (most recent call last):
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.230417.00/bin/crab.py", line 159, in <module>
+    client()
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.230417.00/bin/crab.py", line 144, in __call__
+    self.cmd = sub_cmd(self.logger, args[1:])
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.230417.00/lib/CRABClient/Commands/submit.py", line 36, in __init__
+    SubCommand.__init__(self, logger, cmdargs, disable_interspersed_args=True)
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.230417.00/lib/CRABClient/Commands/SubCommand.py", line 318, in __init__
+    self.requestarea, self.requestname, self.logfile = createWorkArea(
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.230417.00/lib/CRABClient/ClientUtilities.py", line 387, in createWorkArea
+    raise ConfigException("Working area '%s' already exists \nPlease change the requestName in the config file" % fullpath)
+CRABClient.ClientExceptions.ConfigException: Working area '/lustrehome/mbuonsante/Tau_3mu/CMSSW_12_4_11_patch3/src/CrabSubmission/Data/SkimTau3mu/reco2022_RunC/crab_projects/crab_SkimDsTau3mu_2022eraC_stream1_Mini_v3' already exists 
+Please change the requestName in the config file
+INFO 2023-05-04 13:52:45.824 UTC: 	 Log file is /lustrehome/mbuonsante/Tau_3mu/CMSSW_12_4_11_patch3/src/CrabSubmission/Data/SkimTau3mu/reco2022_RunC/crab.log
