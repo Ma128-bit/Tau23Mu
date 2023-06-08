@@ -203,7 +203,7 @@ private:
     std::vector<double>  Muon_vx,  Muon_vy,  Muon_vz;
     
     //MuonID
-    std::vector<double>  Muon_isGlobal,  Muon_isTracker,  Muon_isSoft,  Muon_isLoose, Muon_isMedium, Muon_isTight,  Muon_isPF,  Muon_isRPCMuon,  Muon_isStandAloneMuon,  Muon_isTrackerMuon,  Muon_isCaloMuon,  Muon_isQualityValid,  Muon_isTimeValid,  Muon_isIsolationValid,  Muon_numberOfMatchedStations,  Muon_numberOfMatches;
+    std::vector<double>  Muon_isGlobal,  Muon_isTracker,  Muon_isSoft, Muon_isMVA, Muon_isMVASoft,  Muon_isLoose, Muon_isMedium, Muon_isTight,  Muon_isPF,  Muon_isRPCMuon,  Muon_isStandAloneMuon,  Muon_isTrackerMuon,  Muon_isCaloMuon,  Muon_isQualityValid,  Muon_isTimeValid,  Muon_isIsolationValid,  Muon_numberOfMatchedStations,  Muon_numberOfMatches;
     
     //MuonTime
     std::vector<double>  Muon_timeAtIpInOut,Muon_timeAtIpInOutErr;
@@ -1713,6 +1713,8 @@ for(edm::View<pat::Muon>::const_iterator mu=muons->begin(); mu!=muons->end(), k<
     //MuonID
     Muon_isGlobal.push_back(mu->isGlobalMuon());
     Muon_isSoft.push_back(mu->isSoftMuon(PV));
+    Muon_isMVA.push_back(mu->mvaValue());
+    Muon_isMVASoft.push_back(mu->softMvaValue());
     Muon_isLoose.push_back(mu->isLooseMuon());
     Muon_isMedium.push_back(mu->isMediumMuon());
     Muon_isTight.push_back(mu->isTightMuon(PV));
@@ -1893,7 +1895,7 @@ for(edm::View<pat::Muon>::const_iterator mu=muons->begin(); mu!=muons->end(), k<
         iEvent.getByToken(puToken_, PupInfo);
         puN = PupInfo->begin()->getTrueNumInteractions();
     }
-
+	
     
     ////Synch Tree//////
     /*   double maxPt =0; double maxPhi=0, maxEta=0; vector<pat::Muon> SyncSortedMu ;
@@ -2005,6 +2007,8 @@ for(edm::View<pat::Muon>::const_iterator mu=muons->begin(); mu!=muons->end(), k<
     /////MuonID
     Muon_isGlobal.clear();
     Muon_isSoft.clear();
+    Muon_isMVA.clear();
+    Muon_isMVASoft.clear();
     Muon_isLoose.clear();
     Muon_isMedium.clear();
     Muon_isTight.clear();
@@ -2414,6 +2418,8 @@ void MiniAnaTau3Mu::beginJob() {
     /////MuonID
     tree_->Branch("Muon_isGlobal", &Muon_isGlobal);
     tree_->Branch("Muon_isSoft", &Muon_isSoft);
+    tree_->Branch("Muon_isMVA", &Muon_isMVA);
+    tree_->Branch("Muon_isMVASoft", &Muon_isMVASoft);
     tree_->Branch("Muon_isLoose", &Muon_isLoose);
     tree_->Branch("Muon_isMedium", &Muon_isMedium);
     tree_->Branch("Muon_isTight", &Muon_isTight);
