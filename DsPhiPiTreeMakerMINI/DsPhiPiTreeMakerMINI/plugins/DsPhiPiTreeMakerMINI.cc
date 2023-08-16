@@ -1690,7 +1690,7 @@ DsPhiPiTreeMakerMINI::analyze(const edm::Event& iEvent, const edm::EventSetup& i
         Muon_numberOfMatchedStations.push_back(mu->numberOfMatchedStations());
         Muon_numberOfMatches.push_back(mu->numberOfMatches(reco::Muon::SegmentArbitration));
         Muon_SoftMVA_Val.push_back(mu->softMvaValue());
-        Muon_MVA.push_back(mu->mvaValue());
+        Muon_MVA.push_back(mu->mvaIDValue());
         Muon_timeAtIpInOut.push_back(mu->time().timeAtIpInOut);
         Muon_timeAtIpInOutErr.push_back(mu->time().timeAtIpInOutErr);
         

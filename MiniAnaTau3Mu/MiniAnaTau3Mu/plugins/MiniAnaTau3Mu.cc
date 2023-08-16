@@ -1713,7 +1713,7 @@ for(edm::View<pat::Muon>::const_iterator mu=muons->begin(); mu!=muons->end(), k<
     //MuonID
     Muon_isGlobal.push_back(mu->isGlobalMuon());
     Muon_isSoft.push_back(mu->isSoftMuon(PV));
-    Muon_isMVA.push_back(mu->mvaValue());
+    Muon_isMVA.push_back(mu->mvaIDValue());
     Muon_isMVASoft.push_back(mu->softMvaValue());
     Muon_isLoose.push_back(mu->isLooseMuon());
     Muon_isMedium.push_back(mu->isMediumMuon());
