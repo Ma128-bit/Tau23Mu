@@ -2,13 +2,13 @@
 # Usage:
 #    AllLumi.sh
 
-echo -e "\nData 2022_RunC"
-cd reco2022_RunC
+echo -e "\nData 2022_RunC-v2"
+cd reco2023_RunC-v2
 cd crab_projects
 for i in 0 1 2 3 4 5 6 7
 do
     echo -e "\nData $i"
-    cd crab_SkimDsPhiPi_2022eraC_stream${i}_Mini_v3
+    cd crab_SkimDsPhiPi_2023eraC-v2_stream${i}_Mini_v3
     cd results
     brilcalc lumi --normtag /cvmfs/cms-bril.cern.ch/cms-lumi-pog/Normtags/normtag_BRIL.json -u /fb -i processedLumis.json --hltpath "HLT_DoubleMu3_Trk_Tau3mu_v*"
     cd ..
