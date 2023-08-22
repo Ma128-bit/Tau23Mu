@@ -28,6 +28,10 @@ Example:
 crab submit -c crab_Tau3mu_reco2023_RunC-v1_stream0_cfg.py 
 ```
 
+Tto submit all the jobs use:
+```
+submitAllJobs.sh
+```
 <p>&nbsp;</p>
 
 ## Run the analysis
@@ -45,7 +49,7 @@ python createRunFile_new.py [DatasetType] [AnalysisType] --n [NTreesPerJob] --MC
 ```
 * If you want to run on data sample:
 ```
-python createRunFile_new.py [DatasetType] [AnalysisType] --n [NTreesPerJob] --run [DataEra] --outName [outNameLabel]
+python createRunFile_new.py --run [DataEra] --n [NTreesPerJob] [DatasetType] [AnalysisType] --outName [outNameLabel]
 ```
     * `DatasetType` = `MC`, `data`, `data_control`
     * `AnalysisType` = `tau3mu`, `control`
