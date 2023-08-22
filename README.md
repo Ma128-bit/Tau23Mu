@@ -23,8 +23,9 @@ cmsRun SkimTools/SkimTau3Mu/test/run_MC2022_PatAndTree_cfg.py
 
 To run the ntuple production on the grid, the crab configurations files for the submission of the jobs are in the `CrabSubmission` directory.
 
+Example:
 ```
-source 
+crab submit -c crab_Tau3mu_reco2023_RunC-v1_stream0_cfg.py 
 ```
 
 <p>&nbsp;</p>
