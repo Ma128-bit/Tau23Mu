@@ -50,7 +50,7 @@ python createRunFile_new.py [DatasetType] [AnalysisType] --n [NTreesPerJob] --ru
     * `DatasetType` = `MC`, `data`, `data_control`
     * `AnalysisType` = `tau3mu`, `control`
     * `DataEra` = `2022C_0`, ..., `2022G_7`
-    * 'MCprocess_name' = `Ds_preE`,`Ds_postE` ... (for 2022)
+    * `MCprocess_name` = `Ds_preE`,`Ds_postE` ... (for 2022)
     * `outNameLabel` = label you want to add to the analyzed root files 
 
 A directory ( called `[MC/DataEra]_[AnalysisType]_[outNameLabel]` ) and the file for the submission are created. The job submission on the batch system can be launched by sourcing the .sh script that was created:\
