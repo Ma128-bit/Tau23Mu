@@ -21,16 +21,14 @@ Example:
 cmsRun SkimTools/SkimTau3Mu/test/run_MC2022_PatAndTree_cfg.py
 ```
 
-To run the ntuple production on the grid, the crab configurations files for the submission of the jobs are in the `CrabSubmission` directory.
-
-Example:
+To run the ntuple production on the grid, the crab configurations files for the submission of the jobs are in the `CrabSubmission` directory. Example:
 ```
 crab submit -c crab_Tau3mu_reco2023_RunC-v1_stream0_cfg.py 
 ```
 
-Tto submit all the jobs use:
+To submit all the jobs use:
 ```
-submitAllJobs.sh
+source submitAllJobs.sh
 ```
 <p>&nbsp;</p>
 
@@ -62,11 +60,11 @@ A directory ( called `[MC/DataEra]_[AnalysisType]_[outNameLabel]` ) and the file
 
 Here are some examples for the creation of jobs:
 * to run the tau3mu analysis on the DsTau3mu MC sample:\
-`python createRunFile_new.py Ds MC tau3mu --n 150 --MCprocess --outName test`
+`python createRunFile_new.py MC tau3mu --n 150 --MCprocess Ds --outName test`
 * to run the tau3mu analysis on the data: era C, stream 0:\
-`python createRunFile_new.py data tau3mu --n 150 --run 2022C_0 --outName test`
+`python createRunFile_new.py --run 2022C_0 --n 150 data tau3mu --outName test`
 * to run the control channel analysis on the DsPhiPi MC sample:\
-`python createRunFile_new.py --n 150 --MCprocess DsPhiPi MC tau3mu --outName test` # N.B: use the flag `tau3mu` here! the submission needs to be fixed to have a consistent definition...
+`python createRunFile_new.py MC tau3mu --n 150 --MCprocess DsPhiPi --outName test` # N.B: use the flag `tau3mu` here! the submission needs to be fixed to have a consistent definition...
 * to run the control channel analysis the data: of era E, stream 1:\
 `python createRunFile_new.py data_control control --n 150 --run 2022E_1  --outName test`
 
