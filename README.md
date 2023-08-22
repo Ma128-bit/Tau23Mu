@@ -41,7 +41,7 @@ The analysis of the ntuples is performed by using:
 The script `createRunFile_new.py` allows for the creation of jobs for the submission of the analysis on the batch system.
 * If you want to run on a MC sample:
 ```
-python createRunFile_new.py [DatasetType] [AnalysisType] --n [NTreesPerJob] --MCprocess --outName [outNameLabel]
+python createRunFile_new.py [DatasetType] [AnalysisType] --n [NTreesPerJob] --MCprocess [MCprocess_name] --outName [outNameLabel]
 ```
 * If you want to run on data sample:
 ```
@@ -50,6 +50,7 @@ python createRunFile_new.py [DatasetType] [AnalysisType] --n [NTreesPerJob] --ru
     * `DatasetType` = `MC`, `data`, `data_control`
     * `AnalysisType` = `tau3mu`, `control`
     * `DataEra` = `2022C_0`, ..., `2022G_7`
+    * 'MCprocess_name' = `Ds_preE`,`Ds_postE` ... (for 2022)
     * `outNameLabel` = label you want to add to the analyzed root files 
 
 A directory ( called `[MC/DataEra]_[AnalysisType]_[outNameLabel]` ) and the file for the submission are created. The job submission on the batch system can be launched by sourcing the .sh script that was created:\
