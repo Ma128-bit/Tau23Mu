@@ -12,14 +12,14 @@ export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/lib
 export STORE=/lustre/cms/store/user/mbuonsan/
 
 #cd /lustrehome/mbuonsante/Tau_3mu/CMSSW_12_4_11_patch3/src/Analysis
-cd /lustrehome/mbuonsante/Tau_3mu/CMSSW_13_0_7/src/Analysis
+cd /lustrehome/mbuonsante/Tau_3mu/CMSSW_13_0_10/src/Analysis
 
 eval `scramv1 runtime -sh`
 #set env. variables if needed
 export HOME=/cvmfs/cms.cern.ch/slc7_amd64_gcc630/lcg/root/6.10.08/etc/
 
 #cd /lustrehome/mbuonsante/Tau_3mu/CMSSW_12_4_11_patch3/src/Analysis
-cd /lustrehome/mbuonsante/Tau_3mu/CMSSW_13_0_7/src/Analysis
+cd /lustrehome/mbuonsante/Tau_3mu/CMSSW_13_0_10/src/Analysis
 #export ROOTSYS=/lustrehome/aruta/root/
 #source $ROOTSYS/bin/thisroot.sh 
 #export HOME=$ROOTSYS/etc/
