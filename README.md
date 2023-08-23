@@ -81,10 +81,12 @@ Here are some examples for submitting the jobs for:
 * control analysis on all the 2022 datasets:\
 `source submitAllJobs_new.sh 150 control test`
 
+Use `condor_q` to check the status of the jobs.
+
 <p>&nbsp;</p>
 
 ### Merging the analyzed files for all the datasets
-The script `haddAllJobs_new.sh` allows for the automatic merging of the output files from the analysis for all the datasets.\
+The script `haddAllJobs_new.sh` (or `haddAllJobs_2023.sh` for 2023) allows for the automatic merging of the output files from the analysis for all the datasets.\
 `source haddAllJobs_new.sh [analysisType] [outNameLabel]`
 
 Here are some examples for merging the analyzed files for:
@@ -93,3 +95,8 @@ Here are some examples for merging the analyzed files for:
 * control channel analysis on all the 2022 datasets:\
 `source haddAllJobs_new.sh control test`
 
+<p>&nbsp;</p>
+
+### Merge of streams (0...7) for each era
+The script `haddAllJobs_perEra.sh` (or `haddAllJobs_perEra2023.sh` for 2023) allows for the automatic merging of the streams.\
+Creare the directory `JobAdd_perEra` and then `source haddAllJobs_perEra.sh`
