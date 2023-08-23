@@ -9,8 +9,8 @@ void Control_inv_mass(){
     ofstream fout2("Inv_mass_plot/some_fit_results.txt");
     fout.close();
     fout2.close();
-    TString name[5]={"C","D","E","F", "G"};
-    TString lumi[5]={"0.25", "0.147", "0.29", "0.887", "0.153"};
+    TString name[7]={"B","C-v1","C-v2","C-v3", "C-v4", "D-v1", "D-v2"};
+    TString lumi[7]={"0.25", "0.147", "0.29", "0.887", "0.153", "0.887", "0.153"};
     TString lumi_tot="1.727";
     Fit_each_era(name, lumi, lumi_tot);
 }
@@ -160,18 +160,12 @@ void Fit_each_era(TString name[], TString lumi[], TString lumi_tot){
     unsigned int y[5][3]={{1500,300,21000},{1000,250,9000},{2000,650,20000},{7500,1800,60000},{800,180,10000}};
     float par[2]={1.,1.};
     TChain *ch_tot = new TChain("FinalTree");
-    for(int i=0; i<5; i++){
+    for(int i=0; i<7; i++){
 	//if(i==0) {par[1]=2.; par[0]=2.;}
 	//else {par[1]=1.; par[0]=1.;}
         TChain *ch1 = new TChain("FinalTree");
-        for(int j=0;j<8;j++){
-            TString num;
-            num.Form("%d",j);
-            ch1->Add("/lustrehome/mbuonsante/Tau_3mu/CMSSW_12_4_11_patch3/src/Analysis/2022"+name[i]+"_"+num+"_control_ReReco/AnalysedTree_data_control_2022"+name[i]+"_"+num+"_control_merged_ReReco.root");
-            //if(i==1) ch1->Add("/lustrehome/mbuonsante/Tau_3mu/CMSSW_12_4_11_patch3/src/Analysis/2022D-v1_"+num+"_control_test/AnalysedTree_data_control_2022D-v1_"+num+"_control_merged_test.root");
-            ch_tot->Add("/lustrehome/mbuonsante/Tau_3mu/CMSSW_12_4_11_patch3/src/Analysis/2022"+name[i]+"_"+num+"_control_ReReco/AnalysedTree_data_control_2022"+name[i]+"_"+num+"_control_merged_ReReco.root");
-            //if(i==1) ch_tot->Add("/lustrehome/mbuonsante/Tau_3mu/CMSSW_12_4_11_patch3/src/Analysis/2022D-v1_"+num+"_control_test/AnalysedTree_data_control_2022D-v1_"+num+"_control_merged_test.root");
-        }
+	ch1->Add("/lustrehome/mbuonsante/Tau_3mu/CMSSW_13_0_10/src/Analysis/JobAdd_perEra/Era_"+name[i]+"_control.root");
+	ch_tot->Add("/lustrehome/mbuonsante/Tau_3mu/CMSSW_13_0_10/src/Analysis/JobAdd_perEra/Era_"+name[i]+"_control.root");
         Fit(ch1,par,y[i],lumi[i],name[i]);
         delete ch1;
     }
