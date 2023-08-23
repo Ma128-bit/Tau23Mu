@@ -95,6 +95,8 @@ Here are some examples for merging the analyzed files for:
 * control channel analysis on all the 2022 datasets:\
 `source haddAllJobs_new.sh control test`
 
+<p>&nbsp;</p>
+
 ### Merge of streams (0...7) for each era
 The script `haddAllJobs_perEra.sh` (or `haddAllJobs_perEra2023.sh` for 2023) allows for the automatic merging of the streams.\
 Creare the directory `JobAdd_perEra` and then `source haddAllJobs_perEra.sh`
