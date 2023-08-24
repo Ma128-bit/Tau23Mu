@@ -104,13 +104,13 @@ Creare the directory `JobAdd_perEra` and then `source haddAllJobs_perEra.sh`
 <p>&nbsp;</p>
 
 ### Resubmit Failed Jobs
-The script `resubmitFailedJobs.sh` for 2023 allows for the resubmission of the failed jobs in all eras.\
+The script `resubmitFailedJobs.sh` for 2023 allows for the resubmission of the failed jobs in all eras.
 
 <p>&nbsp;</p>
 
 ## Measurement of luminosity
 Run the script `reportAllJobs.sh`, this allows for the creation of the file `processedLumis.json` for each stream and era.\
 Then use `AllLumi.sh` to measure the luminosity of each stream of a specific era.\
-The mean value of these luminosities is the final luminosity of that era.\
+The mean value of these luminosities is the final luminosity of that era.
 
 <p>&nbsp;</p>
