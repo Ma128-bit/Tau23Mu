@@ -75,7 +75,7 @@ void Fit(TChain *ch, float par[], unsigned int yield[], TString lumi,TString era
     xframe->SetXTitle("2mu +1trk inv. mass (GeV)");
     //totalPDF->paramOn(xframe, Parameters(RooArgSet(nSig, nSig2, nBkg, alpha, nSigma)), Layout(0.6,0.9,0.9));
     data->plotOn(xframe); //plotto i dati
-    totalPDF->plotOn(xframe, Components(RooArgSet(sig_CB, sig_G, sig_2)), LineColor(kRed), LineStyle(kDashed));
+    totalPDF->plotOn(xframe, Components(RooArgSet(sig_CB, sig_2)), LineColor(kRed), LineStyle(kDashed));
     totalPDF->plotOn(xframe, Components(RooArgSet(bkgExp)), LineColor(kGreen), LineStyle(kDashed) );
     totalPDF->plotOn(xframe);
     
@@ -118,7 +118,7 @@ void Fit(TChain *ch, float par[], unsigned int yield[], TString lumi,TString era
     
     float ysig=sig_int2->getVal()*nSig2.getVal() +sig_int_CB->getVal()*nSig_CB.getVal();
     
-    float ysig_e2 = pow(sig_int2->getPropagatedError(*r) * nSig2.getVal(),2)+pow(sig_int2->getVal() * nSig2.getError(),2)+pow(sig_int_CB->getPropagatedError(*r) * nSig_CB.getVal(),2)+pow(sig_int_CB->getVal() * nSig_CB.getError(),2) +pow(sig_int_G->getPropagatedError(*r) * nSig_G.getVal(),2)+pow(sig_int_G->getVal() * nSig_G.getError(),2);
+    float ysig_e2 = pow(sig_int2->getPropagatedError(*r) * nSig2.getVal(),2)+pow(sig_int2->getVal() * nSig2.getError(),2)+pow(sig_int_CB->getPropagatedError(*r) * nSig_CB.getVal(),2)+pow(sig_int_CB->getVal() * nSig_CB.getError(),2);
 
     float ysig_e =TMath::Sqrt(ysig_e2);
     TString print= ""; print.Form("_= %.2f +- %.2f",ysig, ysig_e);
