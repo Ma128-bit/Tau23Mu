@@ -110,6 +110,11 @@ The script `resubmitFailedJobs.sh` for 2023 allows for the resubmission of the f
 
 ## Measurement of luminosity
 Run the script `reportAllJobs.sh`, this allows for the creation of the file `processedLumis.json` for each stream and era.\
+On Lxplus run:
+'''
+source /cvmfs/cms-bril.cern.ch/cms-lumi-pog/brilws-docker/brilws-env
+'''
+to enable the BRIL Work Suite.\
 Then use `AllLumi.sh` to measure the luminosity of each stream of a specific era.\
 The mean value of these luminosities is the final luminosity of that era.
 
