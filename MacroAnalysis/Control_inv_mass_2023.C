@@ -1,46 +1,20 @@
-#include <fstream>
-
-std::vector<RooRealVar*> Fit(TChain *, float [], unsigned int [], TString, TString);
+#include<fstream>
+void Fit_each_era(TString [], TString [], TString);
+void Fit(TChain *, float [], unsigned int [], TString, TString);
 
 using namespace RooFit;
-
 void Control_inv_mass_2023(){
     ofstream fout("Inv_mass_plot/yield.txt");
-    fout << "Yealds_for_different_2022_era:\n";
+    fout<<"Yealds_for_different_2022_era:\n";
     ofstream fout2("Inv_mass_plot/some_fit_results.txt");
     fout.close();
     fout2.close();
-    TString name[7] = {"B", "C-v1", "C-v2", "C-v3", "C-v4", "D-v1", "D-v2"};
-    TString lumi[7] = {"0.25", "0.147", "0.29", "0.887", "0.153", "0.887", "0.153"};
-    TString lumi_tot = "1.727";
-    
-    unsigned int y[5][3] = {{1500, 300, 21000}, {1000, 250, 9000}, {2000, 650, 20000}, {7500, 1800, 60000}, {800, 180, 10000}};
-    float par[2] = {1., 1.};
-    
-    TChain *ch_tot = new TChain("FinalTree");
-    for (int i = 0; i < 7; i++) {
-        ch_tot->Add("/lustrehome/mbuonsante/Tau_3mu/CMSSW_13_0_10/src/Analysis/JobAdd_perEra/Era_" + name[i] + "_control.root");
-    }
-    std::vector<RooRealVar*> fittedParameters = Fit(ch_tot, par, y[0], lumi_tot, "all");
-    
-    for (int i = 0; i < 7; i++) {
-        TChain *ch1 = new TChain("FinalTree");
-        ch1->Add("/lustrehome/mbuonsante/Tau_3mu/CMSSW_13_0_10/src/Analysis/JobAdd_perEra/Era_" + name[i] + "_control.root");
-        
-        // Use the fitted parameters as initial values for ch1 fit
-                if (fittedParameters.size() >= 2) {  // Make sure there are at least two parameters
-                    par[0] = fittedParameters[0]->getVal();
-                    par[1] = fittedParameters[1]->getVal();
-                }
-        
-        Fit(ch1, par, y[i + 1], lumi[i], name[i]);
-        delete ch1;
-    }
-    
-    delete ch_tot;
+    TString name[7]={"B","C-v1","C-v2","C-v3", "C-v4", "D-v1", "D-v2"};
+    TString lumi[7]={"0.25", "0.147", "0.29", "0.887", "0.153", "0.887", "0.153"};
+    TString lumi_tot="1.727";
+    Fit_each_era(name, lumi, lumi_tot);
 }
-
-std::vector<RooRealVar*> Fit(TChain *ch, float par[], unsigned int yield[], TString lumi,TString era="all"){
+void Fit(TChain *ch, float par[], unsigned int yield[], TString lumi,TString era="all"){
     TString common_cut =
                          " Ptmu3 > 1.2 && "
                          "((Ptmu1>3.5 && Etamu1<1.2) || (Ptmu1>2.0 && Etamu1>=1.2 && Etamu1<=2.4)) && "
@@ -71,12 +45,9 @@ std::vector<RooRealVar*> Fit(TChain *ch, float par[], unsigned int yield[], TStr
     //Variabili
     RooRealVar meanCB("meanCB", "meanCB", 1.966, 1.965, 1.968);
     RooRealVar sigmaCB("#sigma_{CB}", "sigmaCB", 0.02, 0.001, 0.1);
-    RooRealVar alpha("#alpha","alpha",par[0]); //nSigma
-    RooRealVar nSigma("n1","n1", par[1]); //Esponente
-    if (era=="all"){
-    alpha.setRange(0.5, 10.);
-    nSigma.setRange(0.1, 25.);
-    }
+    RooRealVar alpha("#alpha","alpha",par[0], 0.5, 10.); //nSigma
+    RooRealVar nSigma("n1","n1", par[1], 0.1, 25.); //Esponente
+
     RooCBShape sig_CB("sig_{CB}","sig_CB",x,meanCB,sigmaCB,alpha,nSigma);
         
     RooRealVar mean2("mean2", "mean2", 1.87, 1.85, 1.90);
@@ -176,12 +147,24 @@ std::vector<RooRealVar*> Fit(TChain *ch, float par[], unsigned int yield[], TStr
     c1->SaveAs("Inv_mass_plot/inv_mass_"+era+".png");
     c1->Clear();
     delete c1;
+
+}
+void Fit_each_era(TString name[], TString lumi[], TString lumi_tot){
+    unsigned int y[5][3]={{1500,300,21000},{1000,250,9000},{2000,650,20000},{7500,1800,60000},{800,180,10000}};
+    float par[2]={1.,1.};
+    TChain *ch_tot = new TChain("FinalTree");
+    for(int i=0; i<7; i++){
+	ch_tot->Add("/lustrehome/mbuonsante/Tau_3mu/CMSSW_13_0_10/src/Analysis/JobAdd_perEra/Era_"+name[i]+"_control.root");
+    }
+    unsigned int yy[3]={12500,3080,112000};
+    Fit(ch_tot,par,yy,lumi_tot,"all");
     
-    std::vector<RooRealVar*> fittedParameters;
-    fittedParameters.push_back(&alpha);
-    fittedParameters.push_back(&nSigma);
-    // Add more parameters as needed
-
-    return fittedParameters;
-
+    for(int i=0; i<7; i++){
+	//if(i==0) {par[1]=2.; par[0]=2.;}
+	//else {par[1]=1.; par[0]=1.;}
+        TChain *ch1 = new TChain("FinalTree");
+	ch1->Add("/lustrehome/mbuonsante/Tau_3mu/CMSSW_13_0_10/src/Analysis/JobAdd_perEra/Era_"+name[i]+"_control.root");
+        Fit(ch1,par,y[i],lumi[i],name[i]);
+        delete ch1;
+    }
 }
