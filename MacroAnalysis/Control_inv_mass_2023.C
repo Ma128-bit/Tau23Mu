@@ -154,15 +154,17 @@ void Fit_each_era(TString name[], TString lumi[], TString lumi_tot){
     float par[2]={1.,1.};
     TChain *ch_tot = new TChain("FinalTree");
     for(int i=0; i<7; i++){
+	ch_tot->Add("/lustrehome/mbuonsante/Tau_3mu/CMSSW_13_0_10/src/Analysis/JobAdd_perEra/Era_"+name[i]+"_control.root");
+    }
+    unsigned int yy[3]={12500,3080,112000};
+    Fit(ch_tot,par,yy,lumi_tot,"all");
+    
+    for(int i=0; i<7; i++){
 	//if(i==0) {par[1]=2.; par[0]=2.;}
 	//else {par[1]=1.; par[0]=1.;}
         TChain *ch1 = new TChain("FinalTree");
 	ch1->Add("/lustrehome/mbuonsante/Tau_3mu/CMSSW_13_0_10/src/Analysis/JobAdd_perEra/Era_"+name[i]+"_control.root");
-	ch_tot->Add("/lustrehome/mbuonsante/Tau_3mu/CMSSW_13_0_10/src/Analysis/JobAdd_perEra/Era_"+name[i]+"_control.root");
         Fit(ch1,par,y[i],lumi[i],name[i]);
         delete ch1;
     }
-    unsigned int yy[3]={12500,3080,112000};
-    Fit(ch_tot,par,yy,lumi_tot,"all");
-    //Fit(ch_tot,par,yy,"1.33","all");
 }
