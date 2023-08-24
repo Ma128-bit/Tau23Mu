@@ -47,14 +47,9 @@ void Fit(TChain *ch, float par[], unsigned int yield[], TString lumi,TString era
     RooRealVar sigmaCB("#sigma_{CB}", "sigmaCB", 0.02, 0.001, 0.1);
     RooRealVar alpha("#alpha","alpha",par[0], 0.5, 10.); //nSigma
     RooRealVar nSigma("n1","n1", par[1], 0.1, 25.); //Esponente
-    RooRealVar gamm1("#gamma1", "gamma1", 0.02, 0.001, 0.1);
-    
-    RooRealVar sigmaG("#sigma_{G}","sigmaG", 0.02, 0.001, 0.1);
 
     RooCBShape sig_CB("sig_{CB}","sig_CB",x,meanCB,sigmaCB,alpha,nSigma);
-    
-    RooGaussian sig_G("sig_{G}","sig_G",x,meanCB,sigmaG);
-    
+        
     RooRealVar mean2("mean2", "mean2", 1.87, 1.85, 1.90);
     RooRealVar sigma2("#sigma2", "sigma2", 0.03, 0.001, 0.1);
     //RooRealVar alpha2("#alpha2","alpha2",par[2], 0.5, 5.);
@@ -65,13 +60,12 @@ void Fit(TChain *ch, float par[], unsigned int yield[], TString lumi,TString era
     RooRealVar gamma("#Gamma","Gamma",-1, -2., -1e-2) ;
     RooExponential bkgExp("bkgExpPdf","bkgExpPdf",x, gamma);
 
-    RooRealVar nSig_CB("nSig_CB", "Number of signal candidates CB", (int)(8*yield[0]/11), 1., 1e+6);
-    RooRealVar nSig_G("nSig_G", "Number of signal candidates G", (int)(3*yield[0]/11), 1., 1e+6);
+    RooRealVar nSig_CB("nSig_CB", "Number of signal candidates CB", (int)(yield[0]), 1., 1e+6);
     RooRealVar nSig2("nSig2", "Number of signal 2 candidates ", yield[1], 1., 1e+6);
     RooRealVar nBkg("nBkg", "Bkg component", yield[2], 1., 1e+6);
     
     //Unisco le pdf:
-    RooAddPdf* totalPDF = new RooAddPdf("totalPDF", "totalPDF", RooArgList(sig_CB, sig_G, sig_2, bkgExp), RooArgList(nSig_CB, nSig_G, nSig2, nBkg));
+    RooAddPdf* totalPDF = new RooAddPdf("totalPDF", "totalPDF", RooArgList(sig_CB, sig_2, bkgExp), RooArgList(nSig_CB, nSig2, nBkg));
     
     //Fit:
     RooFitResult * r =  totalPDF->fitTo(*data, Extended(kTRUE),Save(true));
@@ -119,11 +113,10 @@ void Fit(TChain *ch, float par[], unsigned int yield[], TString lumi,TString era
     //Integrale
     x.setRange("signal",1.93,2.01);
     RooAbsReal* sig_int_CB = sig_CB.createIntegral(x,NormSet(x),Range("signal"));
-    RooAbsReal* sig_int_G = sig_G.createIntegral(x,NormSet(x),Range("signal"));
     RooAbsReal* sig_int2 = sig_2.createIntegral(x,NormSet(x),Range("signal"));
     RooAbsReal* fsigregion_bkg = bkgExp.createIntegral(x,NormSet(x),Range("signal"));
     
-    float ysig=sig_int2->getVal()*nSig2.getVal() +sig_int_CB->getVal()*nSig_CB.getVal() + sig_int_G->getVal()*nSig_G.getVal();
+    float ysig=sig_int2->getVal()*nSig2.getVal() +sig_int_CB->getVal()*nSig_CB.getVal();
     
     float ysig_e2 = pow(sig_int2->getPropagatedError(*r) * nSig2.getVal(),2)+pow(sig_int2->getVal() * nSig2.getError(),2)+pow(sig_int_CB->getPropagatedError(*r) * nSig_CB.getVal(),2)+pow(sig_int_CB->getVal() * nSig_CB.getError(),2) +pow(sig_int_G->getPropagatedError(*r) * nSig_G.getVal(),2)+pow(sig_int_G->getVal() * nSig_G.getError(),2);
 
