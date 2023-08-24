@@ -1,19 +1,38 @@
-#include<fstream>
-void Fit_each_era(TString [], TString [], TString);
+#include <fstream>
+
 void Fit(TChain *, float [], unsigned int [], TString, TString);
 
 using namespace RooFit;
+
 void Control_inv_mass_2023(){
     ofstream fout("Inv_mass_plot/yield.txt");
-    fout<<"Yealds_for_different_2022_era:\n";
+    fout << "Yealds_for_different_2022_era:\n";
     ofstream fout2("Inv_mass_plot/some_fit_results.txt");
     fout.close();
     fout2.close();
-    TString name[7]={"B","C-v1","C-v2","C-v3", "C-v4", "D-v1", "D-v2"};
-    TString lumi[7]={"0.25", "0.147", "0.29", "0.887", "0.153", "0.887", "0.153"};
-    TString lumi_tot="1.727";
-    Fit_each_era(name, lumi, lumi_tot);
+    TString name[7] = {"B", "C-v1", "C-v2", "C-v3", "C-v4", "D-v1", "D-v2"};
+    TString lumi[7] = {"0.25", "0.147", "0.29", "0.887", "0.153", "0.887", "0.153"};
+    TString lumi_tot = "1.727";
+    
+    unsigned int y[5][3] = {{1500, 300, 21000}, {1000, 250, 9000}, {2000, 650, 20000}, {7500, 1800, 60000}, {800, 180, 10000}};
+    float par[2] = {1., 1.};
+    
+    TChain *ch_tot = new TChain("FinalTree");
+    for (int i = 0; i < 7; i++) {
+        ch_tot->Add("/lustrehome/mbuonsante/Tau_3mu/CMSSW_13_0_10/src/Analysis/JobAdd_perEra/Era_" + name[i] + "_control.root");
+    }
+    Fit(ch_tot, par, y[0], lumi_tot, "all");
+    
+    for (int i = 0; i < 7; i++) {
+        TChain *ch1 = new TChain("FinalTree");
+        ch1->Add("/lustrehome/mbuonsante/Tau_3mu/CMSSW_13_0_10/src/Analysis/JobAdd_perEra/Era_" + name[i] + "_control.root");
+        Fit(ch1, par, y[i + 1], lumi[i], name[i]);
+        delete ch1;
+    }
+    
+    delete ch_tot;
 }
+
 void Fit(TChain *ch, float par[], unsigned int yield[], TString lumi,TString era="all"){
     TString common_cut =
                          " Ptmu3 > 1.2 && "
@@ -148,23 +167,4 @@ void Fit(TChain *ch, float par[], unsigned int yield[], TString lumi,TString era
     c1->Clear();
     delete c1;
 
-}
-void Fit_each_era(TString name[], TString lumi[], TString lumi_tot){
-    unsigned int y[5][3]={{1500,300,21000},{1000,250,9000},{2000,650,20000},{7500,1800,60000},{800,180,10000}};
-    float par[2]={1.,1.};
-    TChain *ch_tot = new TChain("FinalTree");
-    for(int i=0; i<7; i++){
-	ch_tot->Add("/lustrehome/mbuonsante/Tau_3mu/CMSSW_13_0_10/src/Analysis/JobAdd_perEra/Era_"+name[i]+"_control.root");
-    }
-    unsigned int yy[3]={12500,3080,112000};
-    Fit(ch_tot,par,yy,lumi_tot,"all");
-    
-    for(int i=0; i<7; i++){
-	//if(i==0) {par[1]=2.; par[0]=2.;}
-	//else {par[1]=1.; par[0]=1.;}
-        TChain *ch1 = new TChain("FinalTree");
-	ch1->Add("/lustrehome/mbuonsante/Tau_3mu/CMSSW_13_0_10/src/Analysis/JobAdd_perEra/Era_"+name[i]+"_control.root");
-        Fit(ch1,par,y[i],lumi[i],name[i]);
-        delete ch1;
-    }
 }
