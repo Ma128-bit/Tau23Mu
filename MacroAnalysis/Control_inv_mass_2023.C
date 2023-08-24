@@ -3,7 +3,7 @@ void Fit_each_era(TString [], TString [], TString);
 void Fit(TChain *, float [], unsigned int [], TString, TString);
 
 using namespace RooFit;
-void Control_inv_mass(){
+void Control_inv_mass_2023(){
     ofstream fout("Inv_mass_plot/yield.txt");
     fout<<"Yealds_for_different_2022_era:\n";
     ofstream fout2("Inv_mass_plot/some_fit_results.txt");
