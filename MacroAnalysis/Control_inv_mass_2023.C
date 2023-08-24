@@ -71,13 +71,11 @@ std::vector<RooRealVar*> Fit(TChain *ch, float par[], unsigned int yield[], TStr
     //Variabili
     RooRealVar meanCB("meanCB", "meanCB", 1.966, 1.965, 1.968);
     RooRealVar sigmaCB("#sigma_{CB}", "sigmaCB", 0.02, 0.001, 0.1);
+    RooRealVar alpha("#alpha","alpha",par[0]); //nSigma
+    RooRealVar nSigma("n1","n1", par[1]); //Esponente
     if (era=="all"){
-        RooRealVar alpha("#alpha","alpha",par[0], 0.5, 10.); //nSigma
-        RooRealVar nSigma("n1","n1", par[1], 0.1, 25.); //Esponente
-    }
-    else{
-        RooRealVar alpha("#alpha","alpha",par[0]); //nSigma
-        RooRealVar nSigma("n1","n1", par[1]); //Esponente
+    alpha.setRange(0.5, 10.);
+    nSigma.setRange(0.1, 25.);
     }
     RooCBShape sig_CB("sig_{CB}","sig_CB",x,meanCB,sigmaCB,alpha,nSigma);
         
