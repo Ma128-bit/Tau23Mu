@@ -26,7 +26,7 @@ void Control_inv_mass_2023(){
     TString lumi_tot = "1.333";
     
     unsigned int y[7][3] = {{310, 100, 3000}, {3000, 1000, 24000}, {2000, 650, 20000}, {7500, 1800, 60000}, {800, 180, 10000}, {1000, 250, 9000}, {1000, 250, 9000}};
-    std::vector<float> &par = {1., 1.};
+    std::vector<float> par = {1., 1.};
     
     TChain *ch_tot = new TChain("FinalTree");
     for (int i = 0; i < 7; i++) {
@@ -128,7 +128,7 @@ void Fit(TChain *ch, std::vector<float> &par, unsigned int yield[], TString lumi
     RooPlot* xframe = x.frame(); //definisco frame
     xframe->SetTitle("");
     xframe->SetXTitle("2mu +1trk inv. mass (GeV)");
-    totalPDF->paramOn(xframe, Parameters(RooArgSet(alpha,nSigma,nSig,nSig2,nBkg )), Layout(0.6,0.9,0.9));
+    totalPDF->paramOn(xframe, Parameters(RooArgSet(alpha,nSigma,nSig1,nSig2,nBkg )), Layout(0.6,0.9,0.9));
     data->plotOn(xframe); //plotto i dati
     totalPDF->plotOn(xframe, Components(RooArgSet(sigCBPdf, sig2CBPdf)), LineColor(kRed), LineStyle(kDashed));
     totalPDF->plotOn(xframe, Components(RooArgSet(bkgExpPdf)), LineColor(kGreen), LineStyle(kDashed) );
