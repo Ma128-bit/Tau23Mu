@@ -25,7 +25,7 @@ void Control_inv_mass_2023(){
     TString lumi[7] = {"0.030", "0.215", "0.063", "0.078", "0.486", "0.381", "0.081"};
     TString lumi_tot = "1.333";
     
-    unsigned int y[7][3] = {{150, 50, 3600}, {3000, 1000, 24000}, {2000, 650, 20000}, {7500, 1800, 60000}, {800, 180, 10000}, {1000, 250, 9000}, {1000, 250, 9000}};
+    unsigned int y[7][3] = {{150, 50, 3600}, {3000, 1000, 24000}, {450, 100, 6000}, {7500, 1800, 60000}, {800, 180, 10000}, {1000, 250, 9000}, {1000, 250, 9000}};
     std::vector<float> par = {1., 1.};
     
     TChain *ch_tot = new TChain("FinalTree");
@@ -55,7 +55,7 @@ void Fit(TChain *ch, std::vector<float> &par, unsigned int yield[], TString lumi
     TString invmass_SB = "(puFactor*(tripletMass<1.80 && tripletMass>1.70))";
     TString invmass_peak = "(puFactor*(tripletMass<2.01 && tripletMass>1.93))";
     TString binning_mass = "(65, 1.65, 2.05)";
-    if(era=="B") binning_mass = "(30, 1.65, 2.05)";
+    if(era=="B" || era=="C-v2") binning_mass = "(30, 1.65, 2.05)";
     
     
     TString selez="(Ptmu3 > 1.2 && ((Ptmu1>3.5 && Etamu1<1.2) || (Ptmu1>2.0 && Etamu1>=1.2 && Etamu1<=2.4)) && ((Ptmu2>3.5 && Etamu2<1.2) || (Ptmu2>2.0 && Etamu2>=1.2 && Etamu2<=2.4)))";
@@ -81,7 +81,7 @@ void Fit(TChain *ch, std::vector<float> &par, unsigned int yield[], TString lumi
     RooRealVar x("x","2mu+1trk inv. mass (GeV)",1.65,2.05);
     //RooRealVar x("x", "x", xMin, xMax);
     int nBins=65;
-    if(era=="B") nBins=30;
+    if(era=="B" || era=="C-v2") nBins=30;
     x.setBins(nBins);
     RooDataHist* data = new RooDataHist("data", h_tripletmass->GetTitle(), RooArgSet(x), Import(*h_tripletmass,kFALSE));
     
