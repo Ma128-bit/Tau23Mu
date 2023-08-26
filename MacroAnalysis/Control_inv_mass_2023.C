@@ -11,7 +11,7 @@
 #include <iomanip>
 #include <sstream>
 
-void Fit(TChain *, float [], unsigned int [], TString, TString);
+void Fit(TChain *ch, std::vector<float> &par, unsigned int yield[], TString lumi,TString era="all");
 
 using namespace RooFit;
 
