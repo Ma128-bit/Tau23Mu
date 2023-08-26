@@ -25,7 +25,7 @@ void Control_inv_mass_2023(){
     TString lumi[7] = {"0.030", "0.215", "0.063", "0.078", "0.486", "0.381", "0.081"};
     TString lumi_tot = "1.333";
     
-    unsigned int y[7][3] = {{150, 50, 3600}, {3000, 1000, 24000}, {2000, 650, 20000}, {8500, 1800, 60000}, {7500, 1800, 60000}, {1000, 250, 9000}, {1000, 250, 9000}};
+    unsigned int y[7][3] = {{150, 50, 3600}, {3000, 1000, 24000}, {2000, 650, 20000}, {8500, 1800, 60000}, {7500, 1800, 60000}, {1000, 250, 9000}, {800, 150, 6000}};
     std::vector<float> par = {1., 1.};
     
     TChain *ch_tot = new TChain("FinalTree");
@@ -36,7 +36,7 @@ void Control_inv_mass_2023(){
     //Fit(ch_tot,par,yy,lumi_tot,"all");
     
     //for (int i = 0; i < 7; i++) {
-    for (int i = 5; i < 7; i++) {
+    for (int i = 6; i < 7; i++) {
         TChain *ch1 = new TChain("FinalTree");
         ch1->Add("/lustrehome/mbuonsante/Tau_3mu/CMSSW_13_0_10/src/Analysis/JobAdd_perEra/Era_" + name[i] + "_control.root");
         Fit(ch1,par,y[i],lumi[i],name[i]);
