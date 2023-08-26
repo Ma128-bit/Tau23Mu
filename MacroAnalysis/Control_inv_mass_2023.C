@@ -115,12 +115,12 @@ void Fit(TChain *ch, std::vector<float> &par, unsigned int yield[], TString lumi
     RooExponential bkgExpPdf("bkgExpPdf","bkgExpPdf",x, gamma);
     bkgExpPdf.fitTo(*data, Range("R3,R4,R5"));
     
-    RooRealVar nsig2("nSig", "Number of signal candidates ", yield[0], 1., 1e+6);
-    RooRealVar nsig1("nSig2", "Number of signal 2 candidates ", yield[1], 1., 1e+6);
-    RooRealVar nbkg("nBkg", "Bkg component", yield[2], 1., 1e+6);
+    RooRealVar nSig2("nSig", "Number of signal candidates ", yield[0], 1., 1e+6);
+    RooRealVar nSig1("nSig2", "Number of signal 2 candidates ", yield[1], 1., 1e+6);
+    RooRealVar nBkg("nBkg", "Bkg component", yield[2], 1., 1e+6);
     
     //Unisco le pdf:
-    RooAddPdf* totalPDF = new RooAddPdf("totalPDF", "totalPDF", RooArgList(sigCBPdf, sig2CBPdf, bkgExpPdf), RooArgList(nsig2, nsig1, nbkg));
+    RooAddPdf* totalPDF = new RooAddPdf("totalPDF", "totalPDF", RooArgList(sigCBPdf, sig2CBPdf, bkgExpPdf), RooArgList(nSig2, nSig1, nBkg));
     
     //Fit:
     RooFitResult * r =  totalPDF->fitTo(*data, Extended(kTRUE),Save(true));
@@ -184,10 +184,10 @@ void Fit(TChain *ch, std::vector<float> &par, unsigned int yield[], TString lumi
     RooAbsReal* fsidebandregion_bkg = bkgExpPdf.createIntegral(x,NormSet(x),Range("sideband"));
 
 
-    Double_t nsigevents = fs * (nsig2.getVal()+nsig1.getVal()+nbkg.getVal()) - fb*nbkg.getVal();
-    Double_t nsig_err = pow( pow(fs_err,2) * pow(nsig2.getVal()+nsig1.getVal()+nbkg.getVal(),2)  + ( pow(nsig2.getPropagatedError(*r),2)+pow(nsig1.getPropagatedError(*r),2)+pow(nbkg.getPropagatedError(*r),2)) * pow(fs,2) + pow(fb_err,2) * pow(nbkg.getVal(),2) + pow(nbkg.getPropagatedError(*r),2)*pow(fb,2) , 0.5);
+    Double_t nsigevents = fs * (nSig2.getVal()+nSig1.getVal()+nBkg.getVal()) - fb*nBkg.getVal();
+    Double_t nsig_err = pow( pow(fs_err,2) * pow(nSig2.getVal()+nSig1.getVal()+nBkg.getVal(),2)  + ( pow(nSig2.getPropagatedError(*r),2)+pow(nSig1.getPropagatedError(*r),2)+pow(nBkg.getPropagatedError(*r),2)) * pow(fs,2) + pow(fb_err,2) * pow(nBkg.getVal(),2) + pow(nBkg.getPropagatedError(*r),2)*pow(fb,2) , 0.5);
 
-    Double_t fsig = nsigevents/(fsigregion_model->getVal()*(nsig2.getVal()+nsig1.getVal()+nbkg.getVal()));
+    Double_t fsig = nsigevents/(fsigregion_model->getVal()*(nSig2.getVal()+nSig1.getVal()+nBkg.getVal()));
     
     
     TString print= ""; print.Form("_= %.2f +- %.2f",nsigevents, nsig_err);
@@ -209,7 +209,7 @@ void Fit(TChain *ch, std::vector<float> &par, unsigned int yield[], TString lumi
     
     if(era=="all"){
         ofstream fout2("Inv_mass_plot/some_fit_results.txt",ios::app);
-        fout2<<fsigregion_bkg->getVal()<<" "<<nbkg.getVal();
+        fout2<<fsigregion_bkg->getVal()<<" "<<nBkg.getVal();
         fout2.close();
     }
     
