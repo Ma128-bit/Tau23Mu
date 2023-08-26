@@ -33,12 +33,13 @@ void Control_inv_mass_2023(){
         ch_tot->Add("/lustrehome/mbuonsante/Tau_3mu/CMSSW_13_0_10/src/Analysis/JobAdd_perEra/Era_" + name[i] + "_control.root");
     }
     unsigned int yy[3]={10000,2200,130000};
-    Fit(ch_tot,par,yy,lumi_tot,"all");
+    //Fit(ch_tot,par,yy,lumi_tot,"all");
     
-    for (int i = 0; i < 7; i++) {
+    //for (int i = 0; i < 7; i++) {
+    for (int i = 0; i < 1; i++) {
         TChain *ch1 = new TChain("FinalTree");
         ch1->Add("/lustrehome/mbuonsante/Tau_3mu/CMSSW_13_0_10/src/Analysis/JobAdd_perEra/Era_" + name[i] + "_control.root");
-        //Fit(ch1,par,y[i],lumi[i],name[i]);
+        Fit(ch1,par,y[i],lumi[i],name[i]);
         delete ch1;
     }
     
