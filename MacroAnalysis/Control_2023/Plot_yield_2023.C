@@ -1,15 +1,15 @@
 
-void Plot_yield(){
+void Plot_yield_2023(){
     cout<<"Inizio"<<endl;
     ifstream fin("Inv_mass_plot/yield.txt");
-    TString name[5]={"C","D","E","F", "G"};
-    TString lumi[5]={"0.25", "0.147", "0.29", "0.887", "0.153"};
-    //TString lumi[5]={"0.22", "0.14", "0.29", "0.87", "0.13"};
+    TString name[7] = {"B", "C-v1", "C-v2", "C-v3", "C-v4", "D-v1", "D-v2"};
+    TString lumi[7] = {"0.030", "0.215", "0.063", "0.078", "0.486", "0.381", "0.081"};
+    TString lumi_tot = "1.333";
     TString s;
     fin>>s;
     cout<<"Inizo loop...";
-    TH1F *g= new TH1F("","",5, 0, 5);
-    for (int i=0; i<5;i++){
+    TH1F *g= new TH1F("","",7, 0, 7);
+    for (int i=0; i<7;i++){
         fin>>s;
         TString val=""; fin>>val;
         float val1 = val.Atof();
