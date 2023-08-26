@@ -36,7 +36,7 @@ void Control_inv_mass_2023(){
     //Fit(ch_tot,par,yy,lumi_tot,"all");
     
     //for (int i = 0; i < 7; i++) {
-    for (int i = 0; i < 1; i++) {
+    for (int i = 1; i < 2; i++) {
         TChain *ch1 = new TChain("FinalTree");
         ch1->Add("/lustrehome/mbuonsante/Tau_3mu/CMSSW_13_0_10/src/Analysis/JobAdd_perEra/Era_" + name[i] + "_control.root");
         Fit(ch1,par,y[i],lumi[i],name[i]);
@@ -55,6 +55,8 @@ void Fit(TChain *ch, std::vector<float> &par, unsigned int yield[], TString lumi
     TString invmass_SB = "(puFactor*(tripletMass<1.80 && tripletMass>1.70))";
     TString invmass_peak = "(puFactor*(tripletMass<2.01 && tripletMass>1.93))";
     TString binning_mass = "(65, 1.65, 2.05)";
+    if(era=="B") binning_mass = "(30, 1.65, 2.05)";
+    
     
     TString selez="(Ptmu3 > 1.2 && ((Ptmu1>3.5 && Etamu1<1.2) || (Ptmu1>2.0 && Etamu1>=1.2 && Etamu1<=2.4)) && ((Ptmu2>3.5 && Etamu2<1.2) || (Ptmu2>2.0 && Etamu2>=1.2 && Etamu2<=2.4)))";
     
@@ -79,6 +81,7 @@ void Fit(TChain *ch, std::vector<float> &par, unsigned int yield[], TString lumi
     RooRealVar x("x","2mu+1trk inv. mass (GeV)",1.65,2.05);
     //RooRealVar x("x", "x", xMin, xMax);
     int nBins=65;
+    if(era=="B") nBins=30;
     x.setBins(nBins);
     RooDataHist* data = new RooDataHist("data", h_tripletmass->GetTitle(), RooArgSet(x), Import(*h_tripletmass,kFALSE));
     
