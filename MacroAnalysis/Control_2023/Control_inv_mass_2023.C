@@ -56,7 +56,7 @@ void Fit(TChain *ch, std::vector<float> &par, unsigned int yield[], TString lumi
     TString invmass_peak = "(puFactor*(tripletMass<2.01 && tripletMass>1.93))";
     TString binning_mass = "(65, 1.65, 2.05)";
     if(era=="B") binning_mass = "(30, 1.65, 2.05)";
-    if(era=="C-v2") binning_mass = "(50, 1.65, 2.05)";
+    if(era=="C-v2") binning_mass = "(45, 1.65, 2.05)";
     
     
     TString selez="(Ptmu3 > 1.2 && ((Ptmu1>3.5 && Etamu1<1.2) || (Ptmu1>2.0 && Etamu1>=1.2 && Etamu1<=2.4)) && ((Ptmu2>3.5 && Etamu2<1.2) || (Ptmu2>2.0 && Etamu2>=1.2 && Etamu2<=2.4)))";
@@ -83,7 +83,7 @@ void Fit(TChain *ch, std::vector<float> &par, unsigned int yield[], TString lumi
     //RooRealVar x("x", "x", xMin, xMax);
     int nBins=65;
     if(era=="B") nBins=30;
-    if(era=="C-v2") nBins=50;
+    if(era=="C-v2") nBins=45;
     x.setBins(nBins);
     RooDataHist* data = new RooDataHist("data", h_tripletmass->GetTitle(), RooArgSet(x), Import(*h_tripletmass,kFALSE));
     
