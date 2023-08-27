@@ -135,7 +135,7 @@ void Fit(TChain *ch, std::vector<float> &par, unsigned int yield[], TString lumi
     RooPlot* xframe = x.frame(); //definisco frame
     xframe->SetTitle("");
     xframe->SetXTitle("2mu +1trk inv. mass (GeV)");
-    totalPDF->paramOn(xframe, Parameters(RooArgSet(alpha,nSigma,nSig1,nSig2,nBkg )), Layout(0.6,0.9,0.9));
+    //totalPDF->paramOn(xframe, Parameters(RooArgSet(alpha,nSigma,nSig1,nSig2,nBkg )), Layout(0.6,0.9,0.9));
     data->plotOn(xframe); //plotto i dati
     totalPDF->plotOn(xframe, Components(RooArgSet(sigCBPdf, sig2CBPdf)), LineColor(kRed), LineStyle(kDashed));
     totalPDF->plotOn(xframe, Components(RooArgSet(bkgExpPdf)), LineColor(kGreen), LineStyle(kDashed) );
