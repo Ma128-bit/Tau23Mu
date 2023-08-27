@@ -110,8 +110,9 @@ void Fit(TChain *ch, std::vector<float> &par, unsigned int yield[], TString lumi
     sigCBPdf.fitTo(*data, Range("R2"));
     
     double sigma_g2 = 0.03;
+    if(era=="C-v2") sigma_g2 = 0.05;
     RooRealVar mGCB2("mean2", "meanCB2", 1.87, 1.85, 1.90);
-    RooRealVar sigma2CB("#sigma2_{CB}", "sigma2CB", sigma_g2, 0.01, 0.1);
+    RooRealVar sigma2CB("#sigma2_{CB}", "sigma2CB", sigma_g2, 0.001, 0.1);
     //RooRealVar alpha2("#alpha2","alpha2",par[2], 0.5, 5.);
     //RooRealVar nSigma2("n2","n2", par[3], 1., 5.);
     //RooCBShape sig2CBPdf("sig2CBPdf","sig2CBPdf",x,mGCB2,sigma2CB,alpha2,nSigma2);
