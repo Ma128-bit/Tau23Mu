@@ -36,7 +36,7 @@ void Control_inv_mass_2023(){
     //Fit(ch_tot,par,yy,lumi_tot,"all");
     
     //for (int i = 0; i < 7; i++) {
-    for (int i = 2; i < 3; i++) {
+    for (int i = 5; i < 6; i++) {
         TChain *ch1 = new TChain("FinalTree");
         ch1->Add("/lustrehome/mbuonsante/Tau_3mu/CMSSW_13_0_10/src/Analysis/JobAdd_perEra/Era_" + name[i] + "_control.root");
         Fit(ch1,par,y[i],lumi[i],name[i]);
@@ -191,8 +191,7 @@ void Fit(TChain *ch, std::vector<float> &par, unsigned int yield[], TString lumi
     RooAbsReal* fsidebandregion_bkg = bkgExpPdf.createIntegral(x,NormSet(x),Range("sideband"));
 
 
-    //Double_t nsigevents = fs * (nSig2.getVal()+nSig1.getVal()+nBkg.getVal()) - fb*nBkg.getVal();
-    Double_t nsigevents = fs * (nSig2.getVal()+nSig1.getVal());
+    Double_t nsigevents = fs * (nSig2.getVal()+nSig1.getVal()+nBkg.getVal()) - fb*nBkg.getVal();
     Double_t nsig_err = pow( pow(fs_err,2) * pow(nSig2.getVal()+nSig1.getVal()+nBkg.getVal(),2)  + ( pow(nSig2.getPropagatedError(*r),2)+pow(nSig1.getPropagatedError(*r),2)+pow(nBkg.getPropagatedError(*r),2)) * pow(fs,2) + pow(fb_err,2) * pow(nBkg.getVal(),2) + pow(nBkg.getPropagatedError(*r),2)*pow(fb,2) , 0.5);
 
     Double_t fsig = nsigevents/(fsigregion_model->getVal()*(nSig2.getVal()+nSig1.getVal()+nBkg.getVal()));
