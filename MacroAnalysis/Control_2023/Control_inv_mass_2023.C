@@ -25,7 +25,7 @@ void Control_inv_mass_2023(){
     TString lumi[7] = {"0.030", "0.215", "0.063", "0.078", "0.486", "0.381", "0.081"};
     TString lumi_tot = "1.333";
     
-    unsigned int y[7][3] = {{150, 50, 3600}, {3000, 1000, 24000}, {700, 80, 4500}, {8500, 1800, 60000}, {7500, 1800, 60000}, {1000, 250, 9000}, {800, 150, 6000}};
+    unsigned int y[7][3] = {{150, 50, 3600}, {3000, 1000, 24000}, {100, 80, 4700}, {8500, 1800, 60000}, {7500, 1800, 60000}, {1000, 250, 9000}, {800, 150, 6000}};
     std::vector<float> par = {1., 1.};
     
     TChain *ch_tot = new TChain("FinalTree");
@@ -109,10 +109,9 @@ void Fit(TChain *ch, std::vector<float> &par, unsigned int yield[], TString lumi
 
     sigCBPdf.fitTo(*data, Range("R2"));
     
-    double sigma_g2 = 0.03;
-    if(era=="C-v2") sigma_g2 = 0.05;
+
     RooRealVar mGCB2("mean2", "meanCB2", 1.87, 1.85, 1.90);
-    RooRealVar sigma2CB("#sigma2_{CB}", "sigma2CB", sigma_g2, 0.001, 0.1);
+    RooRealVar sigma2CB("#sigma2_{CB}", "sigma2CB", 0.03, 0.001, 0.1);
     //RooRealVar alpha2("#alpha2","alpha2",par[2], 0.5, 5.);
     //RooRealVar nSigma2("n2","n2", par[3], 1., 5.);
     //RooCBShape sig2CBPdf("sig2CBPdf","sig2CBPdf",x,mGCB2,sigma2CB,alpha2,nSigma2);
