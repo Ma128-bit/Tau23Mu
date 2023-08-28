@@ -3,8 +3,8 @@
 ## Setting the environment
 
 ```
-cmsrel CMSSW_12_4_11_patch3
-cd CMSSW_12_4_11_patch3/src
+cmsrel CMSSW_13_0_10
+cd CMSSW_13_0_10/src
 cmsenv
 git clone https://github.com/BariGEMJetTau/Tau23Mu.git .
 scram b -j20
