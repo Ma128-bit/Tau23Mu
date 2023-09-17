@@ -29,7 +29,7 @@ void Control_inv_mass_2022(){
     std::vector<float> par = {1., 1.};
     
     TChain *ch_tot = new TChain("FinalTree");
-    for (int i = 0; i < 7; i++) {
+    for (int i = 0; i < 5; i++) {
         ch_tot->Add("/lustrehome/mbuonsante/Tau_3mu/CMSSW_12_4_11_patch3/src/Analysis/JobAdd_perEra/Era_" + name[i] + "_control.root");
     }
     unsigned int yy[3]={10000,2200,130000};
