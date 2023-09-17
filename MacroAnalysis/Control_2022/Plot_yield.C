@@ -32,8 +32,8 @@ void Plot_yield(){
 	cout<<value<<" "<<error<<endl;
 	//cout<<".."<<i<<"..";
         g->SetBinContent(i, value/lumi[i]);
-        double error2 = error/lumi[i];
-	//double error2 = sqrt(pow(error/lumi[i],2)+pow(value*lumi[i]*10/(lumi[i]*lumi[i]*100),2));
+        //double error2 = error/lumi[i];
+	double error2 = sqrt(pow(error/lumi[i],2)+pow(value*lumi[i]*10/(lumi[i]*lumi[i]*100),2));
         g->SetBinError(i, error2);
 	i++;
     }
