@@ -15,30 +15,29 @@ void Fit(TChain *ch, std::vector<float> &par, unsigned int yield[], TString lumi
 
 using namespace RooFit;
 
-void Control_inv_mass_2023(){
+void Control_inv_mass_2022(){
     ofstream fout("Inv_mass_plot/yield.txt");
     fout << "Yealds_for_different_2022_era:\n";
     ofstream fout2("Inv_mass_plot/some_fit_results.txt");
     fout.close();
     fout2.close();
-    TString name[7] = {"B", "C-v1", "C-v2", "C-v3", "C-v4", "D-v1", "D-v2"};
-    TString lumi[7] = {"0.030", "0.215", "0.063", "0.078", "0.486", "0.381", "0.081"};
-    TString lumi_tot = "1.333";
+    TString name[5]={"C","D","E","F", "G"};
+    TString lumi[5]={"0.25", "0.147", "0.29", "0.887", "0.153"};
+    TString lumi_tot="1.727";
     
-    unsigned int y[7][3] = {{150, 50, 3600}, {3000, 1000, 24000}, {700, 200, 4500}, {8500, 1800, 60000}, {7500, 1800, 60000}, {1000, 250, 9000}, {800, 150, 6000}};
+    unsigned int y[5][3]={{1500,300,21000},{1000,250,9000},{2000,650,20000},{7500,1800,60000},{800,180,10000}};
     std::vector<float> par = {1., 1.};
     
     TChain *ch_tot = new TChain("FinalTree");
     for (int i = 0; i < 7; i++) {
-        ch_tot->Add("/lustrehome/mbuonsante/Tau_3mu/CMSSW_13_0_10/src/Analysis/JobAdd_perEra/Era_" + name[i] + "_control.root");
+        ch_tot->Add("/lustrehome/mbuonsante/Tau_3mu/CMSSW_12_4_11_patch3/src/Analysis/JobAdd_perEra/Era_" + name[i] + "_control.root");
     }
     unsigned int yy[3]={10000,2200,130000};
     Fit(ch_tot,par,yy,lumi_tot,"all");
     
-    //for (int i = 0; i < 7; i++) {
-    for (int i = 0; i < 7; i++) {
+    for (int i = 0; i < 5; i++) {
         TChain *ch1 = new TChain("FinalTree");
-        ch1->Add("/lustrehome/mbuonsante/Tau_3mu/CMSSW_13_0_10/src/Analysis/JobAdd_perEra/Era_" + name[i] + "_control.root");
+        ch1->Add("/lustrehome/mbuonsante/Tau_3mu/CMSSW_12_4_11_patch3/src/Analysis/JobAdd_perEra/Era_" + name[i] + "_control.root");
         Fit(ch1,par,y[i],lumi[i],name[i]);
         delete ch1;
     }
