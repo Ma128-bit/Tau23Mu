@@ -1,14 +1,26 @@
 
 void Plot_yield(){
+    gStyle->SetOptFit(1);
+    gStyle->SetOptStat(1);
+
     cout<<"Inizio"<<endl;
-    ifstream fin("Inv_mass_plot/yield.txt");
     TString name[5]={"C","D","E","F", "G"};
     double lumi[5]={0.25, 0.147, 0.29, 0.887, 0.153};
     //double lumi[5]={0.22, 0.14, 0.29, 0.8", 0.13};
-    TString s;
-    fin>>s;
+
+    std::ifstream inputFile("Inv_mass_plot/yield.txt");
+    if (!inputFile.is_open()) {
+        std::cerr << "Impossibile aprire il file." << std::endl;
+    }
+
+    // Ignora le prime due righe
+    std::string line;
+    std::getline(inputFile, line);
+    std::getline(inputFile, line);
     cout<<"Inizo loop...";
+
     TH1F *g= new TH1F("","",5, 0, 5);
+    int i=0;    
     while (std::getline(inputFile, line)) {
         char c1,c2;
         std::string identifier;
