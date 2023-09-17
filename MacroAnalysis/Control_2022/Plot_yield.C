@@ -3,8 +3,8 @@ void Plot_yield(){
     cout<<"Inizio"<<endl;
     ifstream fin("Inv_mass_plot/yield.txt");
     TString name[5]={"C","D","E","F", "G"};
-    TString lumi[5]={"0.25", "0.147", "0.29", "0.887", "0.153"};
-    //TString lumi[5]={"0.22", "0.14", "0.29", "0.87", "0.13"};
+    double lumi[5]={0.25, 0.147, 0.29, 0.887, 0.153};
+    //double lumi[5]={0.22, 0.14, 0.29, 0.8", 0.13};
     TString s;
     fin>>s;
     cout<<"Inizo loop...";
@@ -17,8 +17,9 @@ void Plot_yield(){
 	cout<<".."<<i<<"..";
         TString err=""; fin>>err;
         float err1 = err.Atof();
-        g->SetBinContent(i, val1/lumi[i].Atof());
-	double error = sqrt(pow(err1/lumi[i].Atof(),2)+pow(val1*lumi[i].Atof()*10/(lumi[i].Atof()*lumi[i].Atof()*100),2)); 
+	g->SetBinContent(i, value/lumi[i]);
+        double error2 = error/lumi[i];
+	//double error = sqrt(pow(err1/lumi[i].Atof(),2)+pow(val1*lumi[i].Atof()*10/(lumi[i].Atof()*lumi[i].Atof()*100),2)); 
         g->SetBinError(i, error);
     }
     cout<<"...Fine loop"<<endl;
