@@ -25,14 +25,14 @@ void Control_inv_mass_2022(){
     TString lumi[5]={"0.25", "0.147", "0.29", "0.887", "0.153"};
     TString lumi_tot="1.727";
     
-    unsigned int y[5][3]={{1500,300,21000},{1000,250,9000},{2000,650,20000},{7500,1800,60000},{800,180,10000}};
+    unsigned int y[5][3]={{1500,300,22000},{1000,250,9000},{2000,650,23000},{7500,1800,60000},{800,180,10000}};
     std::vector<float> par = {1., 1.};
     
     TChain *ch_tot = new TChain("FinalTree");
     for (int i = 0; i < 5; i++) {
         ch_tot->Add("/lustrehome/mbuonsante/Tau_3mu/CMSSW_12_4_11_patch3/src/Analysis/JobAdd_perEra/Era_" + name[i] + "_control.root");
     }
-    unsigned int yy[3]={10000,2200,130000};
+    unsigned int yy[3]={10000,2000,140000};
     Fit(ch_tot,par,yy,lumi_tot,"all");
     
     for (int i = 0; i < 5; i++) {
