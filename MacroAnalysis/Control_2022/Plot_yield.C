@@ -54,6 +54,7 @@ void Plot_yield(){
     g->GetXaxis()->ChangeLabel(9,-1,-1,-1,-1,-1," ");
     g->GetXaxis()->ChangeLabel(10,-1,-1,-1,-1,-1,"G");
     g->GetXaxis()->ChangeLabel(11,-1,-1,-1,-1,-1," ");
+
     TCanvas *c=new TCanvas("c","c",1200,800);
     c->cd();
     g->SetTitle("Yield per Era");
@@ -61,9 +62,9 @@ void Plot_yield(){
     g->SetMarkerColor(kBlue);
     g->SetLineColor(kBlue);
     g->SetMarkerSize(1.2);
-    
+    g->Fit("pol0");    
     g->Draw();
     c->SaveAs("Inv_mass_plot/plot_yield.png");
-    fin.close();
+    inputFile.close();
 }
 
