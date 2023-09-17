@@ -9,18 +9,21 @@ void Plot_yield(){
     fin>>s;
     cout<<"Inizo loop...";
     TH1F *g= new TH1F("","",5, 0, 5);
-    for (int i=0; i<5;i++){
-        fin>>s;
-        TString val=""; fin>>val;
-        float val1 = val.Atof();
-        fin>>s;
-	cout<<".."<<i<<"..";
-        TString err=""; fin>>err;
-        float err1 = err.Atof();
-	g->SetBinContent(i, value/lumi[i]);
+    while (std::getline(inputFile, line)) {
+        char c1,c2;
+        std::string identifier;
+        double value;
+        double error;
+        std::istringstream iss(line);
+        iss >> identifier  >> value >> c1 >> c2 >> error;
+        cout<<identifier<<value<<c1<<c2<<error<<endl;
+	cout<<value<<" "<<error<<endl;
+	//cout<<".."<<i<<"..";
+        g->SetBinContent(i, value/lumi[i]);
         double error2 = error/lumi[i];
-	//double error = sqrt(pow(err1/lumi[i].Atof(),2)+pow(val1*lumi[i].Atof()*10/(lumi[i].Atof()*lumi[i].Atof()*100),2)); 
-        g->SetBinError(i, error);
+	//double error2 = sqrt(pow(error/lumi[i],2)+pow(value*lumi[i]*10/(lumi[i]*lumi[i]*100),2));
+        g->SetBinError(i, error2);
+	i++;
     }
     cout<<"...Fine loop"<<endl;
     g->GetXaxis()->SetRangeUser(-1, 4);
