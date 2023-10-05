@@ -1,6 +1,6 @@
 #include<fstream>
 using namespace RooFit;
-void Control_plot(){
+void Control_plot_2022(){
     //Luminosità totale
     float lumi=1.754213258; //recorded lumi by HLT_DoubleMu3_Trk_Tau3mu_v*
     float lumi_preE=0.403852348; //recorded lumi by HLT_DoubleMu3_Trk_Tau3mu_v*
@@ -41,7 +41,7 @@ void Control_plot(){
                      "Pmu3","cLP","tKink","segmComp","fv_nC","d0sig","fv_dphi3D","fv_d3Dsig",
                  //    "bs_sv_d3D","bs_sv_d3Dsig","pv_sv_dxy","pv_sv_dxy_sig",
                  //    "pv_sv_dxy/pv_sv_dxy_sig",
-                     "mindca_iso","trkRel","d0sig_max"
+                     "mindca_iso","trkRel","d0sig_max", "MVASoft1", "MVASoft2"
                 //  "nMatchesMu3"
                     };
 
@@ -94,7 +94,9 @@ void Control_plot(){
         if(varname=="pv_sv_dxy") binning = "(40,0,3)";
         if(varname=="pv_sv_dxy_sig") binning = "(80,0,100)";
         if(varname=="pv_sv_dxy/pv_sv_dxy_sig") binning = "(80,0,0.04)";
-        
+        if(varname=="MVASoft1") binning = "(50,0.2,0.8)";
+	if(varname=="MVASoft2") binning = "(50,0.2,0.8)";
+
         ch_tot->Draw(varname+">>hdata_bkg"+s+binning, invmass_SB);
         ch_tot->Draw(varname+">>hdata_sgn"+s+binning, invmass_peak);
         tmc_1->Draw(varname+">>hmc_sgn"+s+binning, invmass_peak);
@@ -189,7 +191,7 @@ void Control_plot(){
         Double_t x_leg_right = 0.90;
         Double_t y_leg_left  = 0.63;
         Double_t y_leg_right = 0.90;
-        if(varname=="segmComp") { x_leg_left = 0.1; x_leg_right = 0.45; }
+        if(varname=="segmComp" || varname=="MVASoft1" || varname=="MVASoft2") { x_leg_left = 0.1; x_leg_right = 0.45; }
         TLegend*leg = new TLegend(x_leg_left,y_leg_left,x_leg_right,y_leg_right);
         leg->AddEntry(hmc_sgn[k],"MC DsPhiPi","f");
         leg->AddEntry(hdata_sgn[k],"data (SB subtracted)","f");
