@@ -3,7 +3,7 @@
 ## Setting the environment
 
 ```
-cmsrel CMSSW_13_0_10
+cmsrel CMSSW_13_0_10 (or CMSSW_12_4_11_patch3 for 2022)
 cd CMSSW_13_0_10/src
 cmsenv
 git clone https://github.com/Ma128-bit/Tau23Mu.git .
