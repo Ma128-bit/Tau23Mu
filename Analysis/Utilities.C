@@ -446,12 +446,12 @@ void myAnalizer::TreeFin_Fill(TTree *tree, Double_t isMC, Int_t ind, Int_t mu_In
     nStationsMu2 = Muon_numberOfMatchedStations->at(mu[1]);
     nStationsMu3 = Muon_numberOfMatchedStations->at(mu[2]);
     //cout << "Ciao5_bis2" << endl;
-    Iso03Mu1 = Mu1_NTracks03iso->at(mu_Ind[0]);
-    Iso03Mu2 = Mu2_NTracks03iso->at(mu_Ind[1]);
-    Iso03Mu3 = Mu3_NTracks03iso->at(mu_Ind[2]);
-    Iso05Mu1 = Muon_emEt05->at(mu[0]);
-    Iso05Mu2 = Muon_emEt05->at(mu[1]);
-    Iso05Mu3 = Muon_emEt05->at(mu[2]);
+    //Iso03Mu1 = Mu1_NTracks03iso->at(mu_Ind[0]);
+    //Iso03Mu2 = Mu2_NTracks03iso->at(mu_Ind[1]);
+    //Iso03Mu3 = Mu3_NTracks03iso->at(mu_Ind[2]);
+    //Iso05Mu1 = Muon_emEt05->at(mu[0]);
+    //Iso05Mu2 = Muon_emEt05->at(mu[1]);
+    //Iso05Mu3 = Muon_emEt05->at(mu[2]);
     //cout << "Ciao5_bis3" << endl;
          // Triplet variables
     P_trip = MuonP(Triplet_Pt->at(ind), Triplet_Eta->at(ind), Triplet_Phi->at(ind));
