@@ -22,7 +22,7 @@ process.maxEvents = cms.untracked.PSet( input = cms.untracked.int32(-1) )
 
 process.source = cms.Source("PoolSource",
     fileNames = cms.untracked.vstring(
-        'root://xrootd-cms.infn.it///store/data/Run2022C/ParkingDoubleMuonLowMass1/MINIAOD/10Dec2022-v3/2540000/3a0e798e-8aef-4809-9e11-f22d18cec45f.root',
+        'root://xrootd-cms.infn.it///store/data/Run2018D/DoubleMuonLowMass/MINIAOD/15Feb2022_UL2018-v1/2530000/DE964E30-92AA-BD4E-A6B1-457FC5F3B7B3.root',
     ),
 )
 
