@@ -848,6 +848,8 @@ void myAnalizer::TreeFin_Init(TTree *&tree, Double_t &isMC, Double_t &lumi, Doub
     tree->Branch("sumPt03_mu1", &sumPt03_mu1);
     tree->Branch("sumPt03_mu2", &sumPt03_mu2);
     tree->Branch("sumPt03_mu3", &sumPt03_mu3);
+    tree->Branch("sumPt05_mu1", &sumPt05_mu1);
+    tree->Branch("sumPt05_mu2", &sumPt05_mu2);
     tree->Branch("sumPt05_mu3", &sumPt05_mu3);
     tree->Branch("hadVeto03", &hadVeto03);
     tree->Branch("hadVeto05", &hadVeto05);
