@@ -13,8 +13,8 @@ process.load('Configuration.EventContent.EventContent_cff')
 process.load('Configuration.StandardSequences.GeometryRecoDB_cff')
 process.load('Configuration.StandardSequences.MagneticField_AutoFromDBCurrent_cff')
 process.load('Configuration.StandardSequences.EndOfProcess_cff')
-#process.load("SkimTools.SkimTau3Mu.Tau3MuSkim_miniAOD_cff")
-process.load("SkimTools.SkimTau3Mu.Tau3MuSkim_miniAOD_noHLT_cff")
+process.load("SkimTools.SkimTau3Mu.Tau3MuSkim_miniAOD_cff")
+#process.load("SkimTools.SkimTau3Mu.Tau3MuSkim_miniAOD_noHLT_cff")
 
 #process.GlobalTag.globaltag = '94X_mc2017_realistic_v14'
 #process.GlobalTag.globaltag = '102X_dataRun2_Prompt_v16' #data2018D
