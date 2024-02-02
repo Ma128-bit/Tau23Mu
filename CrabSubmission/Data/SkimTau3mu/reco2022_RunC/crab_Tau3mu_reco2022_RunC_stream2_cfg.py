@@ -1,7 +1,7 @@
 from CRABClient.UserUtilities import config, getUsername
 config = config()
 
-config.General.requestName = 'SkimDsTau3mu_2022eraC_stream2_Mini_v3'
+config.General.requestName = 'SkimTau3mu_2022eraC_stream2_Mini_v3'
 config.General.workArea = 'crab_projects'
 config.General.transferOutputs = True
 config.General.transferLogs = False
@@ -19,7 +19,7 @@ config.Data.unitsPerJob = 50
 config.Data.lumiMask = 'https://cms-service-dqmdc.web.cern.ch/CAF/certification/Collisions22/Cert_Collisions2022_eraC_355862_357482_Golden.json'
 #config.Data.runRange = '193093-193999' # '193093-194075'
 #config.Data.publication = True
-config.Data.outputDatasetTag = 'SkimDsTau3mu_2022eraC_stream2_Mini_v3'
+config.Data.outputDatasetTag = 'SkimTau3mu_2022eraC_stream2_Mini_v3'
 config.JobType.allowUndistributedCMSSW = True
 config.Site.storageSite = 'T2_IT_Bari'
 config.Site.ignoreGlobalBlacklist  = True
