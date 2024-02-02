@@ -557,7 +557,7 @@ if args.dataset == 'MC' and args.MCprocess == 'DsPhiPi_preE':
 if args.dataset == 'MC' and args.MCprocess == 'DsPhiPi_postE':
    path = '/lustre/cms/store/user/mbuonsan/DstoPhiPi_Phito2Mu_MuFilter_TuneCP5_13p6TeV_pythia8-evtgen/SkimPhiPi_MCRun3_Mini_postE/231128_103225'
 if args.dataset == 'MC' and args.MCprocess == 'Ds_2018':
-   path = ' /lustre/cms/store/user/fsimone/DsToTau_To3Mu_MuFilter_TuneCP5_13TeV-pythia8-evtgen/SkimTau3Mu_Summer20UL18_DsTau3Muv2_noHLT_forSynch/240131_155514'
+   path = '/lustre/cms/store/user/fsimone/DsToTau_To3Mu_MuFilter_TuneCP5_13TeV-pythia8-evtgen/SkimTau3Mu_Summer20UL18_DsTau3Muv2_noHLT_forSynch/240131_155514'
 
 #generating the list of all .root files in given directory and subdirectories
 fileList = []
