@@ -11,7 +11,7 @@ config.JobType.pluginName = 'Analysis'
 
 config.JobType.psetName = '/lustrehome/mbuonsante/Tau_3mu/Ntuple/CMSSW_13_0_13/src/SkimTools/SkimTau3Mu/test/run_Data2022E_PatAndTree_cfg.py'
 
-config.Data.inputDataset = '/ParkingDoubleMuonLowMass0/Run2022E-10Dec2022-v2/MINIAOD'
+config.Data.inputDataset = '/ParkingDoubleMuonLowMass0/Run2022E-PromptReco-v1/MINIAOD'
 config.Data.inputDBS = 'global'
 config.Data.splitting = 'LumiBased'
 #config.Data.splitting = 'Automatic'
