@@ -19,8 +19,8 @@ process.load("SkimTools.SkimTau3Mu.Tau3MuSkim_miniAOD_cff")
 #process.GlobalTag.globaltag = '94X_mc2017_realistic_v14'
 #process.GlobalTag.globaltag = '102X_dataRun2_Prompt_v16' #data2018D
 #process.GlobalTag.globaltag = '124X_dataRun3_Prompt_v4' #data2022C
-#process.GlobalTag.globaltag = '124X_dataRun3_PromptAnalysis_v1' #data_reco 2022 A-D w/ updated JEC/JR corrections
-process.GlobalTag.globaltag = '124X_dataRun3_v11' #Era C & D re-reco
+process.GlobalTag.globaltag = '124X_dataRun3_PromptAnalysis_v1' #data_reco 2022 A-D w/ updated JEC/JR corrections
+#process.GlobalTag.globaltag = '124X_dataRun3_v11' #Era C & D re-reco
 
 process.maxEvents = cms.untracked.PSet( input = cms.untracked.int32(-1) )
 
