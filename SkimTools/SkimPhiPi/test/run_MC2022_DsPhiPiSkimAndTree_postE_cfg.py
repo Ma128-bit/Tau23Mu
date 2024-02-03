@@ -17,8 +17,10 @@ process.load('Configuration.StandardSequences.EndOfProcess_cff')
 #process.load('DsPhiPiTreeMaker.DsPhiPiTreeMaker.DsPhiPiMuMuPi_BParking_cff')
 process.load('SkimTools.SkimPhiPi.DsPhiPiMuMuPi_miniAOD_cff')
 
-process.GlobalTag.globaltag = '124X_mcRun3_2022_realistic_postEE_v1' #MC2022
+#process.GlobalTag.globaltag = '124X_mcRun3_2022_realistic_postEE_v1' #MC2022
 #process.GlobalTag.globaltag = '102X_upgrade2018_realistic_v21' #MC2018
+process.GlobalTag.globaltag = '130X_mcRun3_2022_realistic_postEE_v6' #MC2022
+
 process.maxEvents = cms.untracked.PSet( input = cms.untracked.int32(-1) )
 
 process.source = cms.Source("PoolSource",

@@ -23,7 +23,7 @@ int main(int narg, char** arg){
         cout << "The first argument is wrong! Please choose among 'MC', 'data', 'data_control'" << endl;
         //return -1;
     }
-    if( strcmp(type, "MC") == 0 && (strcmp(datasetName, "DsPhiPi_preE") != 0 && strcmp(datasetName, "DsPhiPi_postE") != 0 && strcmp(datasetName, "DsPhiMuNu") != 0 && strcmp(datasetName, "Ds_preE") != 0 && strcmp(datasetName, "Ds_postE") != 0 && strcmp(datasetName, "Bp_preE") != 0 && strcmp(datasetName, "Bp_postE") != 0 && strcmp(datasetName, "B0_preE") != 0 && strcmp(datasetName, "B0_postE") != 0) ){
+    if( strcmp(type, "MC") == 0 && (strcmp(datasetName, "DsPhiPi_preE") != 0 && strcmp(datasetName, "DsPhiPi_postE") != 0 && strcmp(datasetName, "DsPhiMuNu") != 0 && strcmp(datasetName, "Ds_preE") != 0 && strcmp(datasetName, "Ds_postE") != 0 && strcmp(datasetName, "Bp_preE") != 0 && strcmp(datasetName, "Bp_postE") != 0 && strcmp(datasetName, "B0_preE") != 0 && strcmp(datasetName, "B0_postE") != 0 && strcmp(datasetName, "Ds_2018") != 0) ){
         cout << "The second argument is wrong! Please choose between 'Ds_preE - Ds_postE', 'B0_preE - B0_postE', 'Bp_preE - Bp_postE', 'DsPhiMuNu' and 'DsPhiPi_preE - DsPhiPi_postE'" << endl;
         return -1;
     }
@@ -31,7 +31,6 @@ int main(int narg, char** arg){
     // ################ MC
     if ( strcmp(type, "MC") == 0 ){
         cout << "This is a MC" << endl;
-        
         // ###SIGNAL samples
         // Ds -> Tau -> 3Mu
         if (strcmp(datasetName, "Ds_preE") == 0){
@@ -39,6 +38,14 @@ int main(int narg, char** arg){
             TChain* chain = new TChain("TreeMakerBkg/ntuple");
         //AddFile_MCDs_preE_tau3mu
         //OutFile_MCDs_preE_tau3mu
+        myAnalizer class_data(chain, fileout);
+        class_data.Loop_Tau3mu(type, datasetName);
+        }
+        if (strcmp(datasetName, "Ds_2018") == 0){
+            cout << "MC Dataset : Ds -> Tau -> 3Mu" << endl << endl;
+            TChain* chain = new TChain("TreeMakerBkg/ntuple");
+        //AddFile_MCDs_2018_tau3mu
+        //OutFile_MCDs_2018_tau3mu
         myAnalizer class_data(chain, fileout);
         class_data.Loop_Tau3mu(type, datasetName);
         }
