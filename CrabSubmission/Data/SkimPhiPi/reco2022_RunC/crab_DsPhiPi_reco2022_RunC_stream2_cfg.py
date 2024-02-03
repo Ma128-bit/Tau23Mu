@@ -10,7 +10,7 @@ config.JobType.pluginName = 'Analysis'
 
 config.JobType.psetName	= '/lustrehome/mbuonsante/Tau_3mu/Ntuple/CMSSW_13_0_13/src/SkimTools/SkimPhiPi/test/run_Data2022A-D_DsPhiPiSkimAndTree_cfg.py'
 
-config.Data.inputDataset = '/ParkingDoubleMuonLowMass2/Run2022C-10Dec2022-v2/MINIAOD'
+config.Data.inputDataset = '/ParkingDoubleMuonLowMass2/Run2022C-PromptReco-v1/MINIAOD'
 config.Data.inputDBS = 'global'
 config.Data.splitting = 'LumiBased'
 #config.Data.splitting = 'Automatic'
