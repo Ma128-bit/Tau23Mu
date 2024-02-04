@@ -55,21 +55,21 @@ if args.anatype == 'tau3mu':
    if args.dataset == 'data' and args.run == '2022B':
       path = '' 
    if args.dataset == 'data' and args.run == '2022C_0':
-      path = '/lustre/cms/store/user/mbuonsan/ParkingDoubleMuonLowMass0/SkimDsTau3mu_2022eraC_stream0_Mini_v3/231123_161239'
+      path = '/lustre/cms/store/user/mbuonsan/ParkingDoubleMuonLowMass0/SkimTau3mu_2022eraC_stream0_Mini_v3/231123_161239'
    if args.dataset == 'data' and args.run == '2022C_1':
-      path = '/lustre/cms/store/user/mbuonsan/ParkingDoubleMuonLowMass1/SkimDsTau3mu_2022eraC_stream1_Mini_v3/231123_161253'
+      path = '/lustre/cms/store/user/mbuonsan/ParkingDoubleMuonLowMass1/SkimTau3mu_2022eraC_stream1_Mini_v3/231123_161253'
    if args.dataset == 'data' and args.run == '2022C_2':
-      path = '/lustre/cms/store/user/mbuonsan/ParkingDoubleMuonLowMass2/SkimDsTau3mu_2022eraC_stream2_Mini_v3/231123_161307'
+      path = '/lustre/cms/store/user/mbuonsan/ParkingDoubleMuonLowMass2/SkimTau3mu_2022eraC_stream2_Mini_v3/231123_161307'
    if args.dataset == 'data' and args.run == '2022C_3':
-      path = '/lustre/cms/store/user/mbuonsan/ParkingDoubleMuonLowMass3/SkimDsTau3mu_2022eraC_stream3_Mini_v3/231123_161322'
+      path = '/lustre/cms/store/user/mbuonsan/ParkingDoubleMuonLowMass3/SkimTau3mu_2022eraC_stream3_Mini_v3/231123_161322'
    if args.dataset == 'data' and args.run == '2022C_4':
-      path = '/lustre/cms/store/user/mbuonsan/ParkingDoubleMuonLowMass4/SkimDsTau3mu_2022eraC_stream4_Mini_v3/231123_161336'
+      path = '/lustre/cms/store/user/mbuonsan/ParkingDoubleMuonLowMass4/SkimTau3mu_2022eraC_stream4_Mini_v3/231123_161336'
    if args.dataset == 'data' and args.run == '2022C_5':
-      path = '/lustre/cms/store/user/mbuonsan/ParkingDoubleMuonLowMass5/SkimDsTau3mu_2022eraC_stream5_Mini_v3/231123_161355'
+      path = '/lustre/cms/store/user/mbuonsan/ParkingDoubleMuonLowMass5/SkimTau3mu_2022eraC_stream5_Mini_v3/231123_161355'
    if args.dataset == 'data' and args.run == '2022C_6':
-      path = '/lustre/cms/store/user/mbuonsan/ParkingDoubleMuonLowMass6/SkimDsTau3mu_2022eraC_stream6_Mini_v3/231123_161413'
+      path = '/lustre/cms/store/user/mbuonsan/ParkingDoubleMuonLowMass6/SkimTau3mu_2022eraC_stream6_Mini_v3/231123_161413'
    if args.dataset == 'data' and args.run == '2022C_7':
-      path = '/lustre/cms/store/user/mbuonsan/ParkingDoubleMuonLowMass7/SkimDsTau3mu_2022eraC_stream7_Mini_v3/231123_161427'
+      path = '/lustre/cms/store/user/mbuonsan/ParkingDoubleMuonLowMass7/SkimTau3mu_2022eraC_stream7_Mini_v3/231123_161427'
      
    '''
    if args.dataset == 'data' and args.run == '2022D_0':
