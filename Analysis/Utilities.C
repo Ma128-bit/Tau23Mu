@@ -412,8 +412,8 @@ void myAnalizer::TreeFin_Fill(TTree *tree, Double_t isMC, Int_t ind, Int_t mu_In
     else puFactor = pileupFactor;
     tripletMass = Triplet_Mass->at(ind);
     tripletMassReso = ResoTriplMass(mu_Ind, mu);
-    if(tripletMassReso>0 && tripletMassReso<=0.0065) category = 0;
-    if(tripletMassReso>0.0065 && tripletMassReso<=0.0105) category = 1;
+    if(tripletMassReso>0 && tripletMassReso<=0.007) category = 0;
+    if(tripletMassReso>0.007 && tripletMassReso<=0.0105) category = 1;
     if(tripletMassReso>0.0105 && tripletMassReso<= 0.02) category = 2;
     if(tripletMassReso>0.02 || tripletMassReso<0) category = -99;
     
