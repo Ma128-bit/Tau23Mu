@@ -16,7 +16,7 @@ parser.add_argument("--run", type=str, default='', choices=['2018D', '2022B', '2
 # Optional Arguments
 parser.add_argument("--outName", type=str, default="test", help="Specify name for output files")
 parser.add_argument("--n", type=int, default=255, help="number of .root files per job")
-parser.add_argument("--MCprocess", type=str, default='', choices=['Ds_2018', 'Ds_preE', 'Ds_postE', 'B0_preE', 'B0_postE', 'Bp_preE', 'Bp_postE', 'DsPhiPi_preE', 'DsPhiPi_postE', 'DsPhiMuNu'], help="process in Monte Carlo")
+parser.add_argument("--MCprocess", type=str, default='', choices=['Minbias', 'Ds_2018', 'Ds_preE', 'Ds_postE', 'B0_preE', 'B0_postE', 'Bp_preE', 'Bp_postE', 'DsPhiPi_preE', 'DsPhiPi_postE', 'DsPhiMuNu'], help="process in Monte Carlo")
 args = parser.parse_args()
 
 #prepare output filename  and option string
@@ -558,6 +558,10 @@ if args.dataset == 'MC' and args.MCprocess == 'DsPhiPi_postE':
    path = '/lustre/cms/store/user/mbuonsan/DstoPhiPi_Phito2Mu_MuFilter_TuneCP5_13p6TeV_pythia8-evtgen/SkimPhiPi_MCRun3_Mini_postE/231128_103225'
 if args.dataset == 'MC' and args.MCprocess == 'Ds_2018':
    path = '/lustre/cms/store/user/fsimone/DsToTau_To3Mu_MuFilter_TuneCP5_13TeV-pythia8-evtgen/SkimTau3Mu_Summer20UL18_DsTau3Muv2_yesHLT_forSynch/240202_190214'
+if args.dataset == 'MC' and args.MCprocess == 'Minbias':
+   path = '/lustre/cms/store/user/mbuonsan/InclusiveDileptonMinBias_TuneCP5Plus_13p6TeV_pythia8/SkimTau3mu_MCMinBias_Mini/240206_113714'
+
+
 
 #generating the list of all .root files in given directory and subdirectories
 fileList = []
