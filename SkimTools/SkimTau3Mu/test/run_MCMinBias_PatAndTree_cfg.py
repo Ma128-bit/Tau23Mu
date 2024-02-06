@@ -16,9 +16,8 @@ process.load('Configuration.StandardSequences.EndOfProcess_cff')
 process.load("SkimTools.SkimTau3Mu.Tau3MuSkim_miniAOD_cff")
 #process.load("SkimTools.SkimTau3Mu.Tau3MuSkim_miniAOD_noHLT_cff")
 
-#process.GlobalTag.globaltag = '102X_upgrade2018_realistic_v20' #MC2018 
-#process.GlobalTag.globaltag = '124X_mcRun3_2022_realistic_postEE_v1' #MC2022
-process.GlobalTag.globaltag = '130X_mcRun3_2022_realistic_postEE_v6' #MC2022
+process.GlobalTag.globaltag = '124X_mcRun3_2022_realistic_v12' #MC2022
+#process.GlobalTag.globaltag = '130X_mcRun3_2022_realistic_postEE_v6' #MC2022
 
 process.maxEvents = cms.untracked.PSet( input = cms.untracked.int32(-1) )
 
@@ -36,8 +35,6 @@ process.source = cms.Source("PoolSource",
 
 process.TFileService = cms.Service("TFileService",
                                    fileName = cms.string("TreeMC.root"))
-
-
 
 
 process.unpackedPatTrigger = cms.EDProducer("PATTriggerObjectStandAloneUnpacker",
@@ -66,9 +63,6 @@ process.TreeMakerBkg = cms.EDAnalyzer("MiniAnaTau3Mu",
                                       extInputTag = cms.InputTag( "gtStage2Digis" )
                                       
 )
-
-
-
 
 process.Tau3MuSkim = cms.Path(process.ThreeMuonSelSeq*
                               process.unpackedPatTrigger*
