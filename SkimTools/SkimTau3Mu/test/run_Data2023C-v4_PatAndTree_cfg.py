@@ -18,7 +18,7 @@ process.load("SkimTools.SkimTau3Mu.Tau3MuSkim_miniAOD_cff")
 
 #process.GlobalTag.globaltag = '124X_dataRun3_v11' #Era C & D re-reco
 
-process.GlobalTag.globaltag = '130X_dataRun3_Prompt_v3_forRun368229_v1' #2023 era C-v4 tag
+process.GlobalTag.globaltag = '130X_dataRun3_PromptAnalysis_v1' #2023 era C-v4 tag
 
 process.maxEvents = cms.untracked.PSet( input = cms.untracked.int32(-1) )
 
