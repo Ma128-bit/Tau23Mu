@@ -123,7 +123,8 @@ void myAnalizer_control::Loop_DsPhiPi(TString type, TString datasetName)
             
             // CUT 2 : 2 Glb & PF mu
             bool good_muonID = false;
-            if(Muon_isGlobal->at(mu[0]) == 1 && Muon_isPF->at(mu[0]) == 1 && Muon_isGlobal->at(mu[1]) == 1 && Muon_isPF->at(mu[1]) == 1 && Mu01_Pt->at(j) >= 2 && Mu02_Pt->at(j) >= 2 && abs(Mu01_Eta->at(j))<=2.4 && abs(Mu02_Eta->at(j))<=2.4 && Tr_Pt->at(j) >= 2 && abs(Tr_Eta->at(j))<=2.4 && (Track_dz->at(mu[2]) < 20 && Track_dxy->at(mu[2]) <0.3)) { // check duplicates
+            //if(Muon_isGlobal->at(mu[0]) == 1 && Muon_isPF->at(mu[0]) == 1 && Muon_isGlobal->at(mu[1]) == 1 && Muon_isPF->at(mu[1]) == 1 && Mu01_Pt->at(j) >= 2 && Mu02_Pt->at(j) >= 2 && abs(Mu01_Eta->at(j))<=2.4 && abs(Mu02_Eta->at(j))<=2.4 && Tr_Pt->at(j) >= 2 && abs(Tr_Eta->at(j))<=2.4 && (Track_dz->at(mu[2]) < 20 && Track_dxy->at(mu[2]) <0.3)) { // check duplicates
+            if(Muon_isMedium->at(mu[0]) == 1 && Muon_isMedium->at(mu[1]) == 1 && Mu01_Pt->at(j) >= 2 && Mu02_Pt->at(j) >= 2 && abs(Mu01_Eta->at(j))<=2.4 && abs(Mu02_Eta->at(j))<=2.4 && Tr_Pt->at(j) >= 2 && abs(Tr_Eta->at(j))<=2.4 && (Track_dz->at(mu[2]) < 20 && Track_dxy->at(mu[2]) <0.3)) { // check duplicates
                 bool isDupl = DuplicateFinder(Mu01_Eta->at(j), Mu02_Eta->at(j), Tr_Eta->at(j), Mu01_Phi->at(j), Mu02_Phi->at(j), Tr_Phi->at(j), Mu01_Pt->at(j), Mu02_Pt->at(j), Tr_Pt->at(j));
                 if(isDupl && FlightDistBS_SV_Significance->at(j) >= 2 ){ good_muonID = true; if(debugMode) cout << "goodMuonID" << endl;}
             }
