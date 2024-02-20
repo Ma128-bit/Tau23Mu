@@ -133,9 +133,11 @@ void myAnalizer::Loop_Tau3mu(TString type, TString datasetName)
             // CUT 2 : 3 Glb & PF mu
             bool good_muonID = false;
             //if(Muon_isGlobal->at(mu[0]) == 1 && Muon_isPF->at(mu[0]) == 1 && Muon_isGlobal->at(mu[1]) == 1 && Muon_isPF->at(mu[1]) == 1 && (Muon_isGlobal->at(mu[2]) == 1 || Muon_isTrackerMuon->at(mu[2]) == 1) && Muon_isPF->at(mu[2]) == 1){
-            if(Muon_isGlobal->at(mu[0]) == 1 && Muon_isPF->at(mu[0]) == 1 && Muon_isGlobal->at(mu[1]) == 1 && Muon_isPF->at(mu[1]) == 1 && Muon_isGlobal->at(mu[2]) == 1 && Muon_isPF->at(mu[2]) == 1 && Mu1_Pt->at(j)>=2 && Mu2_Pt->at(j)>=2  && Mu3_Pt->at(j)>=2 && abs(Mu1_Eta->at(j))<=2.4 && abs(Mu2_Eta->at(j))<=2.4 && abs(Mu3_Eta->at(j))<=2.4){
-                good_muonID = true; //cout << "goodMuonID" << endl;
-           }
+            //if(Muon_isGlobal->at(mu[0]) == 1 && Muon_isPF->at(mu[0]) == 1 && Muon_isGlobal->at(mu[1]) == 1 && Muon_isPF->at(mu[1]) == 1 && Muon_isGlobal->at(mu[2]) == 1 && Muon_isPF->at(mu[2]) == 1 && Mu1_Pt->at(j)>=2 && Mu2_Pt->at(j)>=2  && Mu3_Pt->at(j)>=2 && abs(Mu1_Eta->at(j))<=2.4 && abs(Mu2_Eta->at(j))<=2.4 && abs(Mu3_Eta->at(j))<=2.4){
+            // CUT 2 : 3 Medium mu
+            if(Muon_isMedium->at(mu[0]) == 1 && Muon_isMedium->at(mu[1]) == 1 && Muon_isMedium->at(mu[2]) == 1 && Mu1_Pt->at(j)>=2 && Mu2_Pt->at(j)>=2  && Mu3_Pt->at(j)>=2 && abs(Mu1_Eta->at(j))<=2.4 && abs(Mu2_Eta->at(j))<=2.4 && abs(Mu3_Eta->at(j))<=2.4){
+                 good_muonID = true; //cout << "goodMuonID" << endl;
+            }
             if(!good_muonID) continue;
             else triplEff_counter[3] = true;
             
