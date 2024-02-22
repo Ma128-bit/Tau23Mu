@@ -4,9 +4,6 @@
 
 helpstring="Usage:
 haddAllJobs_perEra2023.sh [AnalysisType] [OutputName]
-
-N_files: Number of ntuples to be used per job
-AnalysisType: Choose between 'tau3mu' and 'control'
 "
 
 ANALYSISTYPE=$1
