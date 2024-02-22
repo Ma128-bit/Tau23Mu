@@ -1,10 +1,39 @@
-outlable="PromptReco"
+#!/bin/sh
+# Usage:
+#    haddAllJobs_perEra2023.sh <AnalysisType> <OutputName>
+
+helpstring="Usage:
+haddAllJobs_perEra2023.sh [AnalysisType] [OutputName]
+"
+
+ANALYSISTYPE=$1
+OUT_NAME=$2
+
+
+# Check inputs
+if [ -z ${2+x} ]
+then
+echo ${helpstring}
+return
+fi
+
+# Control channel
+if [ ${ANALYSISTYPE} == "control" ]
+then
+    echo -e "\nDsPhiPi analysis"
+    DATATYPE='data_control'
+elif [ ${ANALYSISTYPE} == "tau3mu" ]
+then
+    echo -e "\nTau3mu analysis"
+    DATATYPE='data'
+fi
+
 rm -r JobAdd_perEra
 mkdir JobAdd_perEra
+
 for era in C D-v1 D-v2 E F G
 do
-	hadd JobAdd_perEra/Era_${era}_tau3mu.root 2022${era}_*_tau3mu_${outlable}/AnalysedTree_data_2022${era}_*_tau3mu*.root
-	hadd JobAdd_perEra/Era_${era}_control.root 2022${era}_*_control_${outlable}/AnalysedTree_data_control_2022${era}_*_control*.root
+	hadd JobAdd_perEra/Era_${era}_${ANALYSISTYPE}.root 2023${era}_*_${ANALYSISTYPE}_${OUT_NAME}/AnalysedTree_${DATATYPE}_2023${era}_*_${ANALYSISTYPE}*.root
 done
 
 hadd JobAdd_perEra/Era_D_tau3mu.root JobAdd_perEra/Era_D-v*_tau3mu.root
