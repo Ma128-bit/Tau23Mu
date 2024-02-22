@@ -33,7 +33,7 @@ mkdir JobAdd_perEra
 
 for era in C D-v1 D-v2 E F G
 do
-	hadd JobAdd_perEra/Era_${era}_${ANALYSISTYPE}.root 2023${era}_*_${ANALYSISTYPE}_${OUT_NAME}/AnalysedTree_${DATATYPE}_2023${era}_*_${ANALYSISTYPE}*.root
+	hadd JobAdd_perEra/Era_${era}_${ANALYSISTYPE}.root 2022${era}_*_${ANALYSISTYPE}_${OUT_NAME}/AnalysedTree_${DATATYPE}_2022${era}_*_${ANALYSISTYPE}*.root
 done
 
 hadd JobAdd_perEra/Era_D_tau3mu.root JobAdd_perEra/Era_D-v*_tau3mu.root
