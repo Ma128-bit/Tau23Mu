@@ -33,5 +33,5 @@ fi
 
 for era in B C-v1 C-v2 C-v3 C-v4 D-v1 D-v2
 do
-	hadd JobAdd_perEra/Era_${era}_${ANALYSISTYPE}.root 2023${era}_*_${ANALYSISTYPE}_PromptReco/AnalysedTree_${DATATYPE}_2023${era}_*_${ANALYSISTYPE}_merged_${OUT_NAME}.root
+	hadd JobAdd_perEra_2023/Era_${era}_${ANALYSISTYPE}.root 2023${era}_*_${ANALYSISTYPE}_${OUT_NAME}/AnalysedTree_${DATATYPE}_2023${era}_*_${ANALYSISTYPE}_merged_${OUT_NAME}.root
 done
