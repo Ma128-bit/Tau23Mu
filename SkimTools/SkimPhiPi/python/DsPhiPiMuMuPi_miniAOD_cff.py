@@ -162,7 +162,7 @@ PlotsAfterLooseMuon = cms.EDAnalyzer('RecoMuonAnalyzer',
 
 
 TwoMuOneTrackSelSeq = cms.Sequence(InitialPlots *
-                               #Tau3MuHLTFilter *
+                               Tau3MuHLTFilter *
                                PlotsAfterTrigger *
                                PlotsAfterOnePFCand *   
                                looseMuons *
