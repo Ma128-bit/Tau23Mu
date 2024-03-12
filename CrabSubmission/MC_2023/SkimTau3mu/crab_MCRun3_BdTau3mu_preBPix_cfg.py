@@ -11,6 +11,7 @@ config.JobType.pluginName = 'Analysis'
 
 config.JobType.psetName = '/lustrehome/mbuonsante/Tau_3mu/Ntuple/CMSSW_13_0_13/src/SkimTools/SkimTau3Mu/test/run_MC2023_PatAndTree_cfg.py'
 config.Data.inputDataset = '/BdtoTau_Tauto3Mu_3MuFilter_TuneCP5_13p6TeV_pythia8-evtgen/Run3Summer23MiniAODv4-130X_mcRun3_2023_realistic_v14-v2/MINIAODSIM'
+config.Data.allowNonValidInputDataset = True
 config.Data.inputDBS = 'global'
 #config.Data.splitting = 'LumiBased'
 config.Data.splitting = 'Automatic'
