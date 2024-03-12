@@ -16,9 +16,7 @@ process.load('Configuration.StandardSequences.EndOfProcess_cff')
 process.load("SkimTools.SkimTau3Mu.Tau3MuSkim_miniAOD_cff")
 #process.load("SkimTools.SkimTau3Mu.Tau3MuSkim_miniAOD_noHLT_cff")
 
-#process.GlobalTag.globaltag = '102X_upgrade2018_realistic_v20' #MC2018 
-#process.GlobalTag.globaltag = '124X_mcRun3_2022_realistic_postEE_v1' #MC2022
-process.GlobalTag.globaltag = '130X_mcRun3_2022_realistic_postEE_v6' #MC2022
+process.GlobalTag.globaltag = '130X_mcRun3_2023_realistic_postBPix_v2' #MC2023
 
 process.maxEvents = cms.untracked.PSet( input = cms.untracked.int32(-1) )
 
