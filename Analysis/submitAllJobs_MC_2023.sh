@@ -23,7 +23,7 @@ fi
 
 if [ ${ANALYSISTYPE} == "tau3mu" ]
 then
-    echo -e "\nMC analysis"
+    echo -e "\n2023 MC analysis"
     DATATYPE='data'
 fi
 
