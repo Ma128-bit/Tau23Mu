@@ -10,8 +10,7 @@ AnalysisType: Choose between 'tau3mu' and 'control'
 "
 
 N_FILES=$1
-OUT_NAME=$3
-
+OUT_NAME=$2
 ANALYSISTYPE="tau3mu"
 
 # Check inputs
