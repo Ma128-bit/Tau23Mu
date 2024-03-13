@@ -561,6 +561,23 @@ if args.dataset == 'MC' and args.MCprocess == 'DsPhiPi_postE':
 if args.dataset == 'MC' and args.MCprocess == 'Ds_2018':
    path = '/lustre/cms/store/user/fsimone/DsToTau_To3Mu_MuFilter_TuneCP5_13TeV-pythia8-evtgen/SkimTau3Mu_Summer20UL18_DsTau3Muv2_yesHLT_forSynch/240202_190214'
 
+if args.dataset == 'MC' and args.MCprocess == 'Ds_preBPix':
+   path = '/lustre/cms/store/user/mbuonsan/DstoTau_Tauto3Mu_3MuFilter_TuneCP5_13p6TeV_pythia8-evtgen/SkimTau3mu_MC_23_Run3_Ds_new_Mini_preBPix/240313_092049'
+if args.dataset == 'MC' and args.MCprocess == 'Ds_postBPix':
+   path = '/lustre/cms/store/user/mbuonsan/DstoTau_Tauto3Mu_3MuFilter_TuneCP5_13p6TeV_pythia8-evtgen/SkimTau3mu_MC_23_Run3_Ds_new_Mini_postBPix/240313_092117'
+if args.dataset == 'MC' and args.MCprocess == 'Bp_preBPix':
+   path = '/lustre/cms/store/user/mbuonsan/ButoTau_Tauto3Mu_3MuFilter_TuneCP5_13p6TeV_pythia8-evtgen/SkimTau3mu_MC_23_Run3_Bu_Mini_preBPix/240313_092035'
+if args.dataset == 'MC' and args.MCprocess == 'Bp_postBPix':
+   path = '/lustre/cms/store/user/mbuonsan/ButoTau_Tauto3Mu_3MuFilter_TuneCP5_13p6TeV_pythia8-evtgen/SkimTau3mu_MC_23_Run3_Bu_Mini_postBPix/240313_092103'
+if args.dataset == 'MC' and args.MCprocess == 'B0_preBPix':
+   path = '/lustre/cms/store/user/mbuonsan/BdtoTau_Tauto3Mu_3MuFilter_TuneCP5_13p6TeV_pythia8-evtgen/SkimTau3mu_MC_23_Run3_Bd_Mini_preBPix/240313_092019'
+if args.dataset == 'MC' and args.MCprocess == 'B0_postBPix':
+   path = '/lustre/cms/store/user/mbuonsan/BdtoTau_Tauto3Mu_3MuFilter_TuneCP5_13p6TeV_pythia8-evtgen/SkimTau3mu_MC_23_Run3_Bd_Mini_postBPix/240313_092004'
+if args.dataset == 'MC' and args.MCprocess == 'DsPhiPi_preBPix':
+   path = '/lustre/cms/store/user/mbuonsan/DstoPhiPi_Phito2Mu_MuFilter_TuneCP5_13p6TeV_pythia8-evtgen/SkimPhiPi_MC_23_Run3_Mini_preBPix/240313_093123'
+if args.dataset == 'MC' and args.MCprocess == 'DsPhiPi_postBPix':
+   path = '/lustre/cms/store/user/mbuonsan/DstoPhiPi_Phito2Mu_MuFilter_TuneCP5_13p6TeV_pythia8-evtgen/SkimPhiPi_MC_23_Run3_Mini_postBPix/240313_092943'
+
 
 
 #generating the list of all .root files in given directory and subdirectories
