@@ -54,6 +54,8 @@ int main(int narg, char** arg){
             TChain* chain = new TChain("TreeMakerBkg/ntuple");
         //AddFile_MCDs_postE_tau3mu
         //OutFile_MCDs_postE_tau3mu
+        //AddFile_MCDs_postBPix_tau3mu
+        //OutFile_MCDs_postBPix_tau3mu
         myAnalizer class_data(chain, fileout);
         class_data.Loop_Tau3mu(type, datasetName);
         }
