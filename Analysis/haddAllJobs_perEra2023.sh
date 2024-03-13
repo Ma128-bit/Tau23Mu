@@ -40,3 +40,13 @@ hadd JobAdd_perEra_2023/Era_C_${ANALYSISTYPE}.root JobAdd_perEra_2023/Era_C-v*_$
 hadd JobAdd_perEra_2023/Era_D_${ANALYSISTYPE}.root JobAdd_perEra_2023/Era_D-v*_${ANALYSISTYPE}.root
 rm JobAdd_perEra_2023/Era_C-v*_${ANALYSISTYPE}.root
 rm JobAdd_perEra_2023/Era_D-v*_${ANALYSISTYPE}.root
+
+if [ ${ANALYSISTYPE} == "tau3mu" ]
+then
+	for MC in B0_preBPix B0_postBPix Bp_preBPix Bp_postBPix DsPhiPi_postBPix DsPhiPi_preBPix Ds_preBPix Ds_postBPix
+	do
+	  	echo "Start MC_${MC}!"
+	        hadd JobAdd_perEra/MC_${MC}.root ${MC}_tau3mu_${OUT_NAME}/AnalysedTree_MC_${MC}_tau3mu*.root
+	done
+fi
+
