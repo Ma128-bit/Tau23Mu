@@ -16,7 +16,7 @@ parser.add_argument("--run", type=str, default='', choices=['Minbias', '2018D', 
 # Optional Arguments
 parser.add_argument("--outName", type=str, default="test", help="Specify name for output files")
 parser.add_argument("--n", type=int, default=255, help="number of .root files per job")
-parser.add_argument("--MCprocess", type=str, default='', choices=['Ds_2018', 'Ds_preE', 'Ds_postE', 'B0_preE', 'B0_postE', 'Bp_preE', 'Bp_postE', 'DsPhiPi_preE', 'DsPhiPi_postE', 'DsPhiMuNu'], help="process in Monte Carlo")
+parser.add_argument("--MCprocess", type=str, default='', choices=['Ds_2018', 'Ds_preE', 'Ds_postE', 'B0_preE', 'B0_postE', 'Bp_preE', 'Bp_postE', 'DsPhiPi_preE', 'DsPhiPi_postE', 'DsPhiMuNu', 'Ds_preBPix', 'Ds_postBPix', 'B0_preBPix', 'B0_postBPix', 'Bp_preBPix', 'Bp_postBPix', 'DsPhiPi_preBPix', 'DsPhiPi_postBPix'], help="process in Monte Carlo")
 args = parser.parse_args()
 
 #prepare output filename  and option string
