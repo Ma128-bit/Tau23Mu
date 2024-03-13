@@ -1,6 +1,6 @@
 #!/bin/sh
 # Usage:
-#    submitAllJobs.sh <N_files> <AnalysisType>
+#    submitAllJobs.sh <N_files> <OutputName>
 
 helpstring="Usage:
 submitAllJobs.sh [N_files] [OutputName]
