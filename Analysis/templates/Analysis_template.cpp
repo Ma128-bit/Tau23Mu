@@ -33,7 +33,7 @@ int main(int narg, char** arg){
         cout << "This is a MC" << endl;
         // ###SIGNAL samples
         // Ds -> Tau -> 3Mu
-        if (strcmp(datasetName, "Ds_preE") == 0){
+        if (strcmp(datasetName, "Ds_preE") == 0 || strcmp(datasetName, "Ds_preBPix") == 0){
             cout << "MC Dataset : Ds -> Tau -> 3Mu" << endl << endl;
             TChain* chain = new TChain("TreeMakerBkg/ntuple");
         //AddFile_MCDs_preE_tau3mu
@@ -49,7 +49,7 @@ int main(int narg, char** arg){
         myAnalizer class_data(chain, fileout);
         class_data.Loop_Tau3mu(type, datasetName);
         }
-	if (strcmp(datasetName, "Ds_postE") == 0){
+	if (strcmp(datasetName, "Ds_postE") == 0 || strcmp(datasetName, "Ds_postBPix") == 0){
             cout << "MC Dataset : Ds -> Tau -> 3Mu" << endl << endl;
             TChain* chain = new TChain("TreeMakerBkg/ntuple");
         //AddFile_MCDs_postE_tau3mu
@@ -58,7 +58,7 @@ int main(int narg, char** arg){
         class_data.Loop_Tau3mu(type, datasetName);
         }
         // Bd -> Tau -> 3Mu
-        if (strcmp(datasetName, "B0_preE") == 0){
+        if (strcmp(datasetName, "B0_preE") == 0 || strcmp(datasetName, "B0_preBPix") == 0){
             cout << "MC Dataset : B0 -> Tau -> 3Mu" << endl << endl;
             TChain* chain = new TChain("TreeMakerBkg/ntuple");
         //AddFile_MCB0_preE_tau3mu
@@ -67,7 +67,7 @@ int main(int narg, char** arg){
         class_data.Loop_Tau3mu(type, datasetName);
         }
 	// Bd -> Tau -> 3Mu
-        if (strcmp(datasetName, "B0_postE") == 0){
+        if (strcmp(datasetName, "B0_postE") == 0 || strcmp(datasetName, "B0_postBPix") == 0){
             cout << "MC Dataset : B0 -> Tau -> 3Mu" << endl << endl;
             TChain* chain = new TChain("TreeMakerBkg/ntuple");
         //AddFile_MCB0_postE_tau3mu
@@ -76,7 +76,7 @@ int main(int narg, char** arg){
         class_data.Loop_Tau3mu(type, datasetName);
         }
         // Bu -> Tau -> 3Mu
-        if (strcmp(datasetName, "Bp_preE") == 0){
+        if (strcmp(datasetName, "Bp_preE") == 0 || strcmp(datasetName, "Bp_preBPix") == 0 ){
             cout << "MC Dataset : Bp -> Tau -> 3Mu" << endl << endl;
             TChain* chain = new TChain("TreeMakerBkg/ntuple");
         //AddFile_MCBp_preE_tau3mu
@@ -85,7 +85,7 @@ int main(int narg, char** arg){
         class_data.Loop_Tau3mu(type, datasetName);
         }
 	// Bu -> Tau -> 3Mu
-        if (strcmp(datasetName, "Bp_postE") == 0){
+        if (strcmp(datasetName, "Bp_postE") == 0 || strcmp(datasetName, "Bp_postBPix") == 0){
             cout << "MC Dataset : Bp -> Tau -> 3Mu" << endl << endl;
             TChain* chain = new TChain("TreeMakerBkg/ntuple");
         //AddFile_MCBp_postE_tau3mu
@@ -96,7 +96,7 @@ int main(int narg, char** arg){
         
         // ###Other samples
         // Ds -> PhiPi -> MuMuPi
-         if (strcmp(datasetName, "DsPhiPi_preE") == 0){
+         if (strcmp(datasetName, "DsPhiPi_preE") == 0 || strcmp(datasetName, "DsPhiPi_preBPix") == 0){
             cout << "MC Dataset : Ds -> PhiPi -> MuMuPi" << endl << endl;
             TChain* chain = new TChain("Tree3Mu/ntuple");
         //AddFile_MCDsPhiPi_preE_tau3mu
@@ -105,7 +105,7 @@ int main(int narg, char** arg){
             class_data.Loop_DsPhiPi(type, datasetName);
          }
 	// Ds -> PhiPi -> MuMuPi
-         if (strcmp(datasetName, "DsPhiPi_postE") == 0){
+         if (strcmp(datasetName, "DsPhiPi_postE") == 0 || strcmp(datasetName, "DsPhiPi_postBPix") == 0){
             cout << "MC Dataset : Ds -> PhiPi -> MuMuPi" << endl << endl;
             TChain* chain = new TChain("Tree3Mu/ntuple");
         //AddFile_MCDsPhiPi_postE_tau3mu
