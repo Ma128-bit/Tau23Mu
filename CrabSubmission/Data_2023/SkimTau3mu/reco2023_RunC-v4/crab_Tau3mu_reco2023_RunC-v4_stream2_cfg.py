@@ -8,7 +8,7 @@ config.General.transferLogs = False
 
 config.JobType.pluginName = 'Analysis'
 
-config.JobType.psetName = '/lustrehome/mbuonsante/Tau_3mu/CMSSW_13_0_10/src/SkimTools/SkimTau3Mu/test/run_Data2023C-v4_PatAndTree_cfg.py'
+config.JobType.psetName = '/lustrehome/mbuonsante/Tau_3mu/Ntuple/CMSSW_13_0_13/src/SkimTools/SkimTau3Mu/test/run_Data2023C-v4_PatAndTree_cfg.py'
 
 config.Data.inputDataset = '/ParkingDoubleMuonLowMass2/Run2023C-22Sep2023_v4-v1/MINIAOD'
 config.Data.inputDBS = 'global'

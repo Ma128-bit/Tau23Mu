@@ -8,9 +8,9 @@ config.General.transferLogs = False
 
 config.JobType.pluginName = 'Analysis'
 
-config.JobType.psetName = '/lustrehome/mbuonsante/Tau_3mu/CMSSW_13_0_10/src/SkimTools/SkimPhiPi/test/run_Data2023D_DsPhiPiSkimAndTree_cfg.py'
+config.JobType.psetName = '/lustrehome/mbuonsante/Tau_3mu/Ntuple/CMSSW_13_0_13/src/SkimTools/SkimPhiPi/test/run_Data2023D_DsPhiPiSkimAndTree_cfg.py'
 
-config.Data.inputDataset = '/ParkingDoubleMuonLowMass6/Run2023D-PromptReco-v1/MINIAOD'
+config.Data.inputDataset = '/ParkingDoubleMuonLowMass6/Run2023D-22Sep2023_v1-v1/MINIAOD'
 config.Data.inputDBS = 'global'
 config.Data.splitting = 'LumiBased'
 #config.Data.splitting = 'Automatic'

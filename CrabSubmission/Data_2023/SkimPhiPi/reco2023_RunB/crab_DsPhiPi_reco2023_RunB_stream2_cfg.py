@@ -8,7 +8,7 @@ config.General.transferLogs = False
 
 config.JobType.pluginName = 'Analysis'
 
-config.JobType.psetName	= '/lustrehome/mbuonsante/Tau_3mu/CMSSW_13_0_10/src/SkimTools/SkimPhiPi/test/run_Data2023B_DsPhiPiSkimAndTree_cfg.py'
+config.JobType.psetName	= '/lustrehome/mbuonsante/Tau_3mu/Ntuple/CMSSW_13_0_13/src/SkimTools/SkimPhiPi/test/run_Data2023B_DsPhiPiSkimAndTree_cfg.py'
 
 config.Data.inputDataset = '/ParkingDoubleMuonLowMass2/Run2023B-22Sep2023-v1/MINIAOD'
 config.Data.inputDBS = 'global'
