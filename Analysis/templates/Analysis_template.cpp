@@ -38,6 +38,8 @@ int main(int narg, char** arg){
             TChain* chain = new TChain("TreeMakerBkg/ntuple");
         //AddFile_MCDs_preE_tau3mu
         //OutFile_MCDs_preE_tau3mu
+        //AddFile_MCDs_preBPix_tau3mu
+        //OutFile_MCDs_preBPix_tau3mu
         myAnalizer class_data(chain, fileout);
         class_data.Loop_Tau3mu(type, datasetName);
         }
@@ -65,6 +67,8 @@ int main(int narg, char** arg){
             TChain* chain = new TChain("TreeMakerBkg/ntuple");
         //AddFile_MCB0_preE_tau3mu
         //OutFile_MCB0_preE_tau3mu
+        //AddFile_MCB0_preBPix_tau3mu
+        //OutFile_MCB0_preBPix_tau3mu
         myAnalizer class_data(chain, fileout);
         class_data.Loop_Tau3mu(type, datasetName);
         }
@@ -74,6 +78,8 @@ int main(int narg, char** arg){
             TChain* chain = new TChain("TreeMakerBkg/ntuple");
         //AddFile_MCB0_postE_tau3mu
         //OutFile_MCB0_postE_tau3mu
+        //AddFile_MCB0_postBPix_tau3mu
+        //OutFile_MCB0_postBPix_tau3mu
         myAnalizer class_data(chain, fileout);
         class_data.Loop_Tau3mu(type, datasetName);
         }
@@ -83,6 +89,8 @@ int main(int narg, char** arg){
             TChain* chain = new TChain("TreeMakerBkg/ntuple");
         //AddFile_MCBp_preE_tau3mu
         //OutFile_MCBp_preE_tau3mu
+        //AddFile_MCBp_preBPix_tau3mu
+        //OutFile_MCBp_preBPix_tau3mu
         myAnalizer class_data(chain, fileout);
         class_data.Loop_Tau3mu(type, datasetName);
         }
@@ -92,6 +100,8 @@ int main(int narg, char** arg){
             TChain* chain = new TChain("TreeMakerBkg/ntuple");
         //AddFile_MCBp_postE_tau3mu
         //OutFile_MCBp_postE_tau3mu
+        //AddFile_MCBp_postBPix_tau3mu
+        //OutFile_MCBp_postBPix_tau3mu
         myAnalizer class_data(chain, fileout);
         class_data.Loop_Tau3mu(type, datasetName);
         }
@@ -103,6 +113,8 @@ int main(int narg, char** arg){
             TChain* chain = new TChain("Tree3Mu/ntuple");
         //AddFile_MCDsPhiPi_preE_tau3mu
         //OutFile_MCDsPhiPi_preE_tau3mu
+        //AddFile_MCDsPhiPi_preBPix_tau3mu
+        //OutFile_MCDsPhiPi_preBPix_tau3mu
             myAnalizer_control class_data(chain, fileout);
             class_data.Loop_DsPhiPi(type, datasetName);
          }
@@ -112,6 +124,8 @@ int main(int narg, char** arg){
             TChain* chain = new TChain("Tree3Mu/ntuple");
         //AddFile_MCDsPhiPi_postE_tau3mu
         //OutFile_MCDsPhiPi_postE_tau3mu
+        //AddFile_MCDsPhiPi_postBPix_tau3mu
+        //OutFile_MCDsPhiPi_postBPix_tau3mu
             myAnalizer_control class_data(chain, fileout);
             class_data.Loop_DsPhiPi(type, datasetName);
          }
