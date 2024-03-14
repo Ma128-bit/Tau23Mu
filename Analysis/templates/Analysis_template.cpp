@@ -12,7 +12,7 @@ int main(int narg, char** arg){
     char type[10];
     strcpy(type, arg[1]);
     cout << "type : " << type << endl;
-    char datasetName[15];
+    char datasetName[20];
     strcpy(datasetName, arg[2]);
     cout << "datasetName : " << datasetName << endl << endl;
     //TString fileout = "/lustrehome/mbuonsante/Tau_3mu/CMSSW_12_4_11_patch3/src/Analysis/Out/file.root";
