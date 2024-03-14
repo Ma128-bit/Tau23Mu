@@ -28,7 +28,7 @@ then
     DATATYPE='data'
 fi
 
-rm -r JobAdd_perEra
+#rm -r JobAdd_perEra
 mkdir JobAdd_perEra
 
 for era in C D-v1 D-v2 E F G
