@@ -46,7 +46,7 @@ then
 	for MC in B0_preBPix B0_postBPix Bp_preBPix Bp_postBPix DsPhiPi_postBPix DsPhiPi_preBPix Ds_preBPix Ds_postBPix
 	do
 	  	echo "Start MC_${MC}!"
-	        hadd JobAdd_perEra/MC_${MC}.root ${MC}_tau3mu_${OUT_NAME}/AnalysedTree_MC_${MC}_tau3mu*.root
+	        hadd JobAdd_perEra_2023/MC_${MC}.root ${MC}_tau3mu_${OUT_NAME}/AnalysedTree_MC_${MC}_tau3mu*.root
 	done
 fi
 
