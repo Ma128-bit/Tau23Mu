@@ -213,6 +213,8 @@ private:
     
     std::vector<double>   Muon_combinedQuality_updatedSta,  Muon_combinedQuality_trkKink,  Muon_combinedQuality_glbKink,  Muon_combinedQuality_trkRelChi2,  Muon_combinedQuality_staRelChi2,  Muon_combinedQuality_chi2LocalPosition,  Muon_combinedQuality_chi2LocalMomentum,  Muon_combinedQuality_localDistance,  Muon_combinedQuality_globalDeltaEtaPhi,  Muon_combinedQuality_tightMatch,  Muon_combinedQuality_glbTrackProbability,  Muon_calEnergy_em,  Muon_calEnergy_emS9,  Muon_calEnergy_emS25,  Muon_calEnergy_had,  Muon_calEnergy_hadS9,  Muon_segmentCompatibility,  Muon_caloCompatibility,  Muon_ptErrOverPt, Muon_BestTrackPt,  Muon_BestTrackPtErr, Muon_BestTrackEta,  Muon_BestTrackEtaErr,  Muon_BestTrackPhi,  Muon_BestTrackPhiErr;
 
+    std::vector<double> Muon_combinedQuality_match1_dX, Muon_combinedQuality_match1_pullX, Muon_combinedQuality_match1_pullDxDz, Muon_combinedQuality_match1_dY, Muon_combinedQuality_match1_pullY, Muon_combinedQuality_match1_pullDyDz, Muon_combinedQuality_match2_dX, Muon_combinedQuality_match2_pullX, Muon_combinedQuality_match2_pullDxDz, Muon_combinedQuality_match2_dY, Muon_combinedQuality_match2_pullY, Muon_combinedQuality_match2_pullDyDz;
+
     std::vector<int>  Muon_simPdgId, Muon_simMotherPdgId, Muon_simFlavour,  Muon_simType, Muon_simBX, Muon_simTpEvent, Muon_simMatchQuality;
     std::vector<double>  Mu1_Pt,  Mu1_Eta,  Mu1_Phi,  Mu2_Pt,  Mu2_Eta,  Mu2_Phi,  Mu3_Pt,  Mu3_Eta,  Mu3_Phi, GenMatchMu1_SimPt, GenMatchMu2_SimPt, GenMatchMu3_SimPt,GenMatchMu1_SimEta, GenMatchMu2_SimEta, GenMatchMu3_SimEta, GenMatchMu1_SimPhi, GenMatchMu2_SimPhi, GenMatchMu3_SimPhi,  GenMatchMu1_Pt,  GenMatchMu2_Pt,  GenMatchMu3_Pt,  GenMatchMu1_Eta,  GenMatchMu2_Eta,  GenMatchMu3_Eta,  GenMatchMu1_Phi,  GenMatchMu2_Phi,  GenMatchMu3_Phi;
     std::vector<double> RefTrack1_Pt, RefTrack1_Eta, RefTrack1_Phi, RefTrack1_TripletIndex;
@@ -1825,7 +1827,48 @@ for(edm::View<pat::Muon>::const_iterator mu=muons->begin(); mu!=muons->end(), k<
         Muon_combinedQuality_globalDeltaEtaPhi.push_back(mu->combinedQuality().globalDeltaEtaPhi);
         Muon_combinedQuality_tightMatch.push_back(mu->combinedQuality().tightMatch);
         Muon_combinedQuality_glbTrackProbability.push_back(mu->combinedQuality().glbTrackProbability);
-    
+
+	// do matching magic
+        const int n_stations = 2;
+        std::vector<MatchPair> matches;
+        for (unsigned int i=0; i < n_stations; ++i)
+            matches.push_back(std::pair(nullptr, nullptr));
+        
+        for (auto& chamberMatch : mu->matches()){
+            unsigned int station = chamberMatch.station() - 1;
+            if (station >= n_stations) continue;
+        
+            for (auto& segmentMatch : chamberMatch.segmentMatches){
+              if ( not segmentMatch.isMask(reco::MuonSegmentMatch::BestInStationByDR) ||
+               not segmentMatch.isMask(reco::MuonSegmentMatch::BelongsToTrackByDR) )
+            continue;
+        
+        
+            auto match_pair = MatchPair(&chamberMatch, &segmentMatch);
+              
+            if (matches[station].first)
+                matches[station] = getBetterMatch(matches[station], match_pair);
+            else
+                matches[station] = match_pair;
+            }
+        }
+        
+        
+        Muon_combinedQuality_match1_dX.push_back(dX(matches[0]));
+        Muon_combinedQuality_match1_pullX.push_back(pullX(matches[0]));
+        Muon_combinedQuality_match1_pullDxDz.push_back(pullDxDz(matches[0]));
+        Muon_combinedQuality_match1_dY.push_back(dY(matches[0]));
+        Muon_combinedQuality_match1_pullY.push_back(pullY(matches[0]));
+        Muon_combinedQuality_match1_pullDyDz.push_back(pullDyDz(matches[0]));
+        
+        Muon_combinedQuality_match2_dX.push_back(dX(matches[1]));
+        Muon_combinedQuality_match2_pullX.push_back(pullX(matches[1]));
+        Muon_combinedQuality_match2_pullDxDz.push_back(pullDxDz(matches[1]));
+        Muon_combinedQuality_match2_dY.push_back(dY(matches[1]));
+        Muon_combinedQuality_match2_pullY.push_back(pullY(matches[1]));
+        Muon_combinedQuality_match2_pullDyDz.push_back(pullDyDz(matches[1]));
+
+
         Muon_calEnergy_em.push_back(mu->calEnergy().em);
         Muon_calEnergy_emS9.push_back(mu->calEnergy().emS9);
         Muon_calEnergy_emS25.push_back(mu->calEnergy().emS25);
@@ -2065,7 +2108,21 @@ for(edm::View<pat::Muon>::const_iterator mu=muons->begin(); mu!=muons->end(), k<
     Muon_combinedQuality_globalDeltaEtaPhi.clear();
     Muon_combinedQuality_tightMatch.clear();
     Muon_combinedQuality_glbTrackProbability.clear();
-    
+
+    Muon_combinedQuality_match1_dX.clear();
+    Muon_combinedQuality_match1_pullX.clear();
+    Muon_combinedQuality_match1_pullDxDz.clear();
+    Muon_combinedQuality_match1_dY.clear();
+    Muon_combinedQuality_match1_pullY.clear();
+    Muon_combinedQuality_match1_pullDyDz.clear();
+        
+    Muon_combinedQuality_match2_dX.clear();
+    Muon_combinedQuality_match2_pullX.clear();
+    Muon_combinedQuality_match2_pullDxDz.clear();
+    Muon_combinedQuality_match2_dY.clear();
+    Muon_combinedQuality_match2_pullY.clear();
+    Muon_combinedQuality_match2_pullDyDz.clear();
+
     Muon_calEnergy_em.clear();
     Muon_calEnergy_emS9.clear();
     Muon_calEnergy_emS25.clear();
@@ -2467,7 +2524,21 @@ void MiniAnaTau3Mu::beginJob() {
     tree_->Branch("Muon_combinedQuality_globalDeltaEtaPhi", &Muon_combinedQuality_globalDeltaEtaPhi);
     tree_->Branch("Muon_combinedQuality_tightMatch", &Muon_combinedQuality_tightMatch);
     tree_->Branch("Muon_combinedQuality_glbTrackProbability", &Muon_combinedQuality_glbTrackProbability);
-    
+
+    tree_->Branch("Muon_combinedQuality_match1_dX", &Muon_combinedQuality_match1_dX);
+    tree_->Branch("Muon_combinedQuality_match1_pullX", &Muon_combinedQuality_match1_pullX);
+    tree_->Branch("Muon_combinedQuality_match1_pullDxDz", &Muon_combinedQuality_match1_pullDxDz);
+    tree_->Branch("Muon_combinedQuality_match1_dY", &Muon_combinedQuality_match1_dY);
+    tree_->Branch("Muon_combinedQuality_match1_pullY", &Muon_combinedQuality_match1_pullY);
+    tree_->Branch("Muon_combinedQuality_match1_pullDyDz", &Muon_combinedQuality_match1_pullDyDz);
+
+    tree_->Branch("Muon_combinedQuality_match2_dX", &Muon_combinedQuality_match2_dX);
+    tree_->Branch("Muon_combinedQuality_match2_pullX", &Muon_combinedQuality_match2_pullX);
+    tree_->Branch("Muon_combinedQuality_match2_pullDxDz", &Muon_combinedQuality_match2_pullDxDz);
+    tree_->Branch("Muon_combinedQuality_match2_dY", &Muon_combinedQuality_match2_dY);
+    tree_->Branch("Muon_combinedQuality_match2_pullY", &Muon_combinedQuality_match2_pullY);
+    tree_->Branch("Muon_combinedQuality_match2_pullDyDz", &Muon_combinedQuality_match2_pullDyDz);
+
     tree_->Branch("Muon_calEnergy_em", &Muon_calEnergy_em);
     tree_->Branch("Muon_calEnergy_emS9", &Muon_calEnergy_emS9);
     tree_->Branch("Muon_calEnergy_emS25", &Muon_calEnergy_emS25);
