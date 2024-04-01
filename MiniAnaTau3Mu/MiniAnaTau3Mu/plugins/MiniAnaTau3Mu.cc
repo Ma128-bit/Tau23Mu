@@ -131,6 +131,9 @@
 #include "DataFormats/TrackReco/interface/Track.h"
 #include "DataFormats/TrackReco/interface/TrackFwd.h"
 ////
+
+typedef pair<const reco::MuonChamberMatch*, const reco::MuonSegmentMatch*> MatchPair;
+
 class MiniAnaTau3Mu : public edm::one::EDAnalyzer<edm::one::SharedResources>  {
 public:
     explicit MiniAnaTau3Mu(const edm::ParameterSet&);
@@ -432,7 +435,76 @@ void removeTracks3(vector<reco::TransientTrack> &pvTracks, const std::vector<rec
     }
   }
 }
+
+//mathing muon track and segment
+//taken from Bmm5 code https://github.com/drkovalskyi/Bmm5/blob/master/NanoAOD/plugins/BmmMuonIdProducer.cc
+
+const MatchPair&
+getBetterMatch(const MatchPair& match1, const MatchPair& match2){
+
+  // Prefer DT over CSC simply because it's closer to IP
+  // and will have less multiple scattering (at least for
+  // RB1 vs ME1/3 case). RB1 & ME1/2 overlap is tiny
+  if (match2.first->detector() == MuonSubdetId::DT and
+      match1.first->detector() != MuonSubdetId::DT)
+    return match2;
+
+  // For the rest compare local x match. We expect that
+  // segments belong to the muon, so the difference in
+  // local x is a reflection on how well we can measure it
+  if ( abs(match1.first->x - match1.second->x) >
+       abs(match2.first->x - match2.second->x) )
+    return match2;
     
+  return match1;
+}
+
+float dX(const MatchPair& match){
+  if (match.first and match.second->hasPhi())
+    return (match.first->x - match.second->x);
+  else
+    return -99;
+}
+
+float pullX(const MatchPair& match){
+  if (match.first and match.second->hasPhi())
+    return dX(match) /
+      sqrt(pow(match.first->xErr, 2) + pow(match.second->xErr, 2));
+  else
+    return -99;
+}
+
+float pullDxDz(const MatchPair& match){
+  if (match.first and match.second->hasPhi())
+    return (match.first->dXdZ - match.second->dXdZ) /
+           sqrt(pow(match.first->dXdZErr, 2) + pow(match.second->dXdZErr, 2));
+  else
+    return -99;
+}
+float dY(const MatchPair& match){
+  if (match.first and match.second->hasZed())
+    return (match.first->y - match.second->y);
+  else
+    return -99;
+}
+
+float pullY(const MatchPair& match){
+  if (match.first and match.second->hasZed())
+    return dY(match) /
+      sqrt(pow(match.first->yErr, 2) + pow(match.second->yErr, 2));
+  else
+    return -99;
+}
+
+float pullDyDz(const MatchPair& match){
+  if (match.first and match.second->hasZed())
+    return (match.first->dYdZ - match.second->dYdZ) /
+           sqrt(pow(match.first->dYdZErr, 2) + pow(match.second->dYdZErr, 2));
+  else
+    return -99;
+}
+
+
     
 void MiniAnaTau3Mu::beginRun(edm::Run const& iRun, edm::EventSetup const& iSetup, const edm::Event& iEvent) {
   /*
