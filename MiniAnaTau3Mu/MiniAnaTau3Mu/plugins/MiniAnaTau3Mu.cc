@@ -512,7 +512,7 @@ void MiniAnaTau3Mu::fillMatchInfo(const pat::Muon& muon){
         for (unsigned int i=0; i < n_stations; ++i)
             matches.push_back(std::pair(nullptr, nullptr));
         
-        for (auto& chamberMatch : mu->matches()){
+        for (auto& chamberMatch : muon.matches()){
             unsigned int station = chamberMatch.station() - 1;
             if (station >= n_stations) continue;
         
