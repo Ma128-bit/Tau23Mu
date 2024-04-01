@@ -143,6 +143,7 @@ public:
     //float dRtriggerMatch(pat::Muon m, trigger::TriggerObjectCollection triggerObjects);
     float dRtriggerMatch(pat::Muon m, vector<pat::TriggerObjectStandAlone> triggerObjects);
     void beginRun(edm::Run const &, edm::EventSetup const&, edm::Event const&);
+    void fillMatchInfo(const pat::Muon&); 
     
     
 private:
@@ -504,6 +505,47 @@ float pullDyDz(const MatchPair& match){
     return -99;
 }
 
+void MiniAnaTau3Mu::fillMatchInfo(const pat::Muon& muon){
+	// Initiate containter for results
+        const int n_stations = 2;
+        std::vector<MatchPair> matches;
+        for (unsigned int i=0; i < n_stations; ++i)
+            matches.push_back(std::pair(nullptr, nullptr));
+        
+        for (auto& chamberMatch : mu->matches()){
+            unsigned int station = chamberMatch.station() - 1;
+            if (station >= n_stations) continue;
+        
+            for (auto& segmentMatch : chamberMatch.segmentMatches){
+              if ( not segmentMatch.isMask(reco::MuonSegmentMatch::BestInStationByDR) ||
+               not segmentMatch.isMask(reco::MuonSegmentMatch::BelongsToTrackByDR) )
+            continue;
+        
+        
+            auto match_pair = MatchPair(&chamberMatch, &segmentMatch);
+              
+            if (matches[station].first)
+                matches[station] = getBetterMatch(matches[station], match_pair);
+            else
+                matches[station] = match_pair;
+            }
+        }
+        
+        
+        Muon_combinedQuality_match1_dX.push_back(dX(matches[0]));
+        Muon_combinedQuality_match1_pullX.push_back(pullX(matches[0]));
+        Muon_combinedQuality_match1_pullDxDz.push_back(pullDxDz(matches[0]));
+        Muon_combinedQuality_match1_dY.push_back(dY(matches[0]));
+        Muon_combinedQuality_match1_pullY.push_back(pullY(matches[0]));
+        Muon_combinedQuality_match1_pullDyDz.push_back(pullDyDz(matches[0]));
+        
+        Muon_combinedQuality_match2_dX.push_back(dX(matches[1]));
+        Muon_combinedQuality_match2_pullX.push_back(pullX(matches[1]));
+        Muon_combinedQuality_match2_pullDxDz.push_back(pullDxDz(matches[1]));
+        Muon_combinedQuality_match2_dY.push_back(dY(matches[1]));
+        Muon_combinedQuality_match2_pullY.push_back(pullY(matches[1]));
+        Muon_combinedQuality_match2_pullDyDz.push_back(pullDyDz(matches[1]));
+}
 
     
 void MiniAnaTau3Mu::beginRun(edm::Run const& iRun, edm::EventSetup const& iSetup, const edm::Event& iEvent) {
@@ -1900,46 +1942,8 @@ for(edm::View<pat::Muon>::const_iterator mu=muons->begin(); mu!=muons->end(), k<
         Muon_combinedQuality_tightMatch.push_back(mu->combinedQuality().tightMatch);
         Muon_combinedQuality_glbTrackProbability.push_back(mu->combinedQuality().glbTrackProbability);
 
-	// do matching magic
-        const int n_stations = 2;
-        std::vector<MatchPair> matches;
-        for (unsigned int i=0; i < n_stations; ++i)
-            matches.push_back(std::pair(nullptr, nullptr));
-        
-        for (auto& chamberMatch : mu->matches()){
-            unsigned int station = chamberMatch.station() - 1;
-            if (station >= n_stations) continue;
-        
-            for (auto& segmentMatch : chamberMatch.segmentMatches){
-              if ( not segmentMatch.isMask(reco::MuonSegmentMatch::BestInStationByDR) ||
-               not segmentMatch.isMask(reco::MuonSegmentMatch::BelongsToTrackByDR) )
-            continue;
-        
-        
-            auto match_pair = MatchPair(&chamberMatch, &segmentMatch);
-              
-            if (matches[station].first)
-                matches[station] = getBetterMatch(matches[station], match_pair);
-            else
-                matches[station] = match_pair;
-            }
-        }
-        
-        
-        Muon_combinedQuality_match1_dX.push_back(dX(matches[0]));
-        Muon_combinedQuality_match1_pullX.push_back(pullX(matches[0]));
-        Muon_combinedQuality_match1_pullDxDz.push_back(pullDxDz(matches[0]));
-        Muon_combinedQuality_match1_dY.push_back(dY(matches[0]));
-        Muon_combinedQuality_match1_pullY.push_back(pullY(matches[0]));
-        Muon_combinedQuality_match1_pullDyDz.push_back(pullDyDz(matches[0]));
-        
-        Muon_combinedQuality_match2_dX.push_back(dX(matches[1]));
-        Muon_combinedQuality_match2_pullX.push_back(pullX(matches[1]));
-        Muon_combinedQuality_match2_pullDxDz.push_back(pullDxDz(matches[1]));
-        Muon_combinedQuality_match2_dY.push_back(dY(matches[1]));
-        Muon_combinedQuality_match2_pullY.push_back(pullY(matches[1]));
-        Muon_combinedQuality_match2_pullDyDz.push_back(pullDyDz(matches[1]));
-
+        //muon-segment matching variables
+        MiniAnaTau3Mu::fillMatchInfo(*mu);
 
         Muon_calEnergy_em.push_back(mu->calEnergy().em);
         Muon_calEnergy_emS9.push_back(mu->calEnergy().emS9);
