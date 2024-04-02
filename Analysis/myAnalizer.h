@@ -121,6 +121,22 @@ public :
    vector<double>  *Muon_BestTrackEtaErr;
    vector<double>  *Muon_BestTrackPhi;
    vector<double>  *Muon_BestTrackPhiErr;
+
+   vector<double>  *Muon_combinedQuality_match1_dX;
+   vector<double>  *Muon_combinedQuality_match1_pullX;
+   vector<double>  *Muon_combinedQuality_match1_pullDxDz;
+   vector<double>  *Muon_combinedQuality_match1_dY;
+   vector<double>  *Muon_combinedQuality_match1_pullY;
+   vector<double>  *Muon_combinedQuality_match1_pullDyDz;
+
+   vector<double>  *Muon_combinedQuality_match2_dX;
+   vector<double>  *Muon_combinedQuality_match2_pullX;
+   vector<double>  *Muon_combinedQuality_match2_pullDxDz;
+   vector<double>  *Muon_combinedQuality_match2_dY;
+   vector<double>  *Muon_combinedQuality_match2_pullY;
+   vector<double>  *Muon_combinedQuality_match2_pullDyDz;
+
+
    vector<double>  *Muon_emEt03;
    vector<double>  *Muon_hadEt03;
    vector<double>  *Muon_nJets03;
@@ -408,6 +424,21 @@ public :
    TBranch        *b_Muon_BestTrackEtaErr;   //!
    TBranch        *b_Muon_BestTrackPhi;   //!
    TBranch        *b_Muon_BestTrackPhiErr;   //!
+
+   TBranch        *b_Muon_combinedQuality_match1_dX;
+   TBranch        *b_Muon_combinedQuality_match1_pullX;
+   TBranch        *b_Muon_combinedQuality_match1_pullDxDz;
+   TBranch        *b_Muon_combinedQuality_match1_dY;
+   TBranch        *b_Muon_combinedQuality_match1_pullY;
+   TBranch        *b_Muon_combinedQuality_match1_pullDyDz;
+
+   TBranch        *b_Muon_combinedQuality_match2_dX;
+   TBranch        *b_Muon_combinedQuality_match2_pullX;
+   TBranch        *b_Muon_combinedQuality_match2_pullDxDz;
+   TBranch        *b_Muon_combinedQuality_match2_dY;
+   TBranch        *b_Muon_combinedQuality_match2_pullY;
+   TBranch        *b_Muon_combinedQuality_match2_pullDyDz;
+
    TBranch        *b_Muon_emEt03;   //!
    TBranch        *b_Muon_hadEt03;   //!
    TBranch        *b_Muon_nJets03;   //!
@@ -759,6 +790,21 @@ void myAnalizer::Init(TTree *tree)
    Muon_BestTrackEtaErr = 0;
    Muon_BestTrackPhi = 0;
    Muon_BestTrackPhiErr = 0;
+   
+   Muon_combinedQuality_match1_dX = 0;
+   Muon_combinedQuality_match1_pullX = 0;
+   Muon_combinedQuality_match1_pullDxDz = 0;
+   Muon_combinedQuality_match1_dY = 0;
+   Muon_combinedQuality_match1_pullY = 0;
+   Muon_combinedQuality_match1_pullDyDz = 0;
+
+   Muon_combinedQuality_match2_dX = 0;
+   Muon_combinedQuality_match2_pullX = 0;
+   Muon_combinedQuality_match2_pullDxDz = 0;
+   Muon_combinedQuality_match2_dY = 0;
+   Muon_combinedQuality_match2_pullY = 0;
+   Muon_combinedQuality_match2_pullDyDz = 0;
+
    Muon_emEt03 = 0;
    Muon_hadEt03 = 0;
    Muon_nJets03 = 0;
@@ -1050,6 +1096,21 @@ void myAnalizer::Init(TTree *tree)
    fChain->SetBranchAddress("Muon_BestTrackEtaErr", &Muon_BestTrackEtaErr, &b_Muon_BestTrackEtaErr);
    fChain->SetBranchAddress("Muon_BestTrackPhi", &Muon_BestTrackPhi, &b_Muon_BestTrackPhi);
    fChain->SetBranchAddress("Muon_BestTrackPhiErr", &Muon_BestTrackPhiErr, &b_Muon_BestTrackPhiErr);
+
+   fChain->SetBranchAddress("Muon_combinedQuality_match1_dX",      &Muon_combinedQuality_match1_dX,        &b_Muon_combinedQuality_match1_dX);         
+   fChain->SetBranchAddress("Muon_combinedQuality_match1_pullX",   &Muon_combinedQuality_match1_pullX,     &b_Muon_combinedQuality_match1_pullX);      
+   fChain->SetBranchAddress("Muon_combinedQuality_match1_pullDxDz",&Muon_combinedQuality_match1_pullDxDz,  &b_Muon_combinedQuality_match1_pullDxDz);
+   fChain->SetBranchAddress("Muon_combinedQuality_match1_dY",      &Muon_combinedQuality_match1_dY,        &b_Muon_combinedQuality_match1_dY);     
+   fChain->SetBranchAddress("Muon_combinedQuality_match1_pullY",   &Muon_combinedQuality_match1_pullY,     &b_Muon_combinedQuality_match1_pullY);  
+   fChain->SetBranchAddress("Muon_combinedQuality_match1_pullDyDz",&Muon_combinedQuality_match1_pullDyDz,  &b_Muon_combinedQuality_match1_pullDyDz);
+                                                                                                   
+   fChain->SetBranchAddress("Muon_combinedQuality_match2_dX",      &Muon_combinedQuality_match2_dX,        &b_Muon_combinedQuality_match2_dX);            
+   fChain->SetBranchAddress("Muon_combinedQuality_match2_pullX",   &Muon_combinedQuality_match2_pullX,     &b_Muon_combinedQuality_match2_pullX);       
+   fChain->SetBranchAddress("Muon_combinedQuality_match2_pullDxDz",&Muon_combinedQuality_match2_pullDxDz,  &b_Muon_combinedQuality_match2_pullDxDz);
+   fChain->SetBranchAddress("Muon_combinedQuality_match2_dY",      &Muon_combinedQuality_match2_dY,        &b_Muon_combinedQuality_match2_dY);             
+   fChain->SetBranchAddress("Muon_combinedQuality_match2_pullY",   &Muon_combinedQuality_match2_pullY,     &b_Muon_combinedQuality_match2_pullY);        
+   fChain->SetBranchAddress("Muon_combinedQuality_match2_pullDyDz",&Muon_combinedQuality_match2_pullDyDz,  &b_Muon_combinedQuality_match2_pullDyDz);   
+   
    fChain->SetBranchAddress("Muon_emEt03", &Muon_emEt03, &b_Muon_emEt03);
    fChain->SetBranchAddress("Muon_hadEt03", &Muon_hadEt03, &b_Muon_hadEt03);
    fChain->SetBranchAddress("Muon_nJets03", &Muon_nJets03, &b_Muon_nJets03);
