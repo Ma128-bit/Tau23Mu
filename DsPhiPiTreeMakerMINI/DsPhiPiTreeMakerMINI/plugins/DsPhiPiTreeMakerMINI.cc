@@ -513,7 +513,7 @@ float pullDyDz(const MatchPair& match){
     return -99;
 }
 
-void MiniAnaTau3Mu::fillMatchInfo(const pat::Muon& muon){
+void DsPhiPiTreeMakerMINI::fillMatchInfo(const pat::Muon& muon){
 	// Initiate containter for results
         const int n_stations = 2;
         std::vector<MatchPair> matches;
@@ -1900,7 +1900,7 @@ DsPhiPiTreeMakerMINI::analyze(const edm::Event& iEvent, const edm::EventSetup& i
         Muon_combinedQuality_glbTrackProbability.push_back(mu->combinedQuality().glbTrackProbability);
 
         //muon-segment matching variables
-        MiniAnaTau3Mu::fillMatchInfo(*mu);
+        DsPhiPiTreeMakerMINI::fillMatchInfo(*mu);
 
         Muon_calEnergy_em.push_back(mu->calEnergy().em);
         Muon_calEnergy_emS9.push_back(mu->calEnergy().emS9);
