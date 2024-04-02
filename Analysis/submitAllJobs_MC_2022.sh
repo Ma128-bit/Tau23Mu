@@ -1,6 +1,6 @@
 #!/bin/sh
 # Usage:
-#    submitAllJobs.sh <N_files> <AnalysisType>
+#    submitAllJobs.sh <N_files> <OutputName>
 
 helpstring="Usage:
 submitAllJobs.sh [N_files] [OutputName]
@@ -10,7 +10,7 @@ N_files: Number of ntuples to be used per job
 
 N_FILES=$1
 ANALYSISTYPE="tau3mu"
-OUT_NAME=$3
+OUT_NAME=$2
 
 
 # Check inputs
