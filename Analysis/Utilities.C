@@ -604,6 +604,18 @@ void myAnalizer::TreeFin_Fill(TTree *tree, Double_t isMC, Int_t ind, Int_t mu_In
     cQ_gTP_1 = Muon_combinedQuality_glbTrackProbability->at(mu[0]);
     segmComp_1 = Muon_segmentCompatibility->at(mu[0]);
     caloComp_1 = Muon_caloCompatibility->at(mu[0]);
+    match1_dX_1 = Muon_combinedQuality_match1_dX->at(mu[0]);
+    match1_pullX_1 = Muon_combinedQuality_match1_pullX->at(mu[0]);
+    match1_pullDxDz_1 = Muon_combinedQuality_match1_pullDxDz->at(mu[0]);
+    match1_dY_1 = Muon_combinedQuality_match1_dY->at(mu[0]);
+    match1_pullY_1 = Muon_combinedQuality_match1_pullY->at(mu[0]);
+    match1_pullDyDz_1 = Muon_combinedQuality_match1_pullDyDz->at(mu[0]);
+    match2_dX_1 = Muon_combinedQuality_match2_dX->at(mu[0]);
+    match2_pullX_1 = Muon_combinedQuality_match2_pullX->at(mu[0]);
+    match2_pullDxDz_1 = Muon_combinedQuality_match2_pullDxDz->at(mu[0]);
+    match2_dY_1 = Muon_combinedQuality_match2_dY->at(mu[0]);
+    match2_pullY_1 = Muon_combinedQuality_match2_pullY->at(mu[0]);
+    match2_pullDyDz_1 = Muon_combinedQuality_match2_pullDyDz->at(mu[0]);
     //cout << "Ciao11" << endl;
     //
     // mu2
@@ -635,6 +647,18 @@ void myAnalizer::TreeFin_Fill(TTree *tree, Double_t isMC, Int_t ind, Int_t mu_In
     cQ_gTP_2 = Muon_combinedQuality_glbTrackProbability->at(mu[1]);
     segmComp_2 = Muon_segmentCompatibility->at(mu[1]);
     caloComp_2 = Muon_caloCompatibility->at(mu[1]);
+    match1_dX_2 = Muon_combinedQuality_match1_dX->at(mu[1]);
+    match1_pullX_2 = Muon_combinedQuality_match1_pullX->at(mu[1]);
+    match1_pullDxDz_2 = Muon_combinedQuality_match1_pullDxDz->at(mu[1]);
+    match1_dY_2 = Muon_combinedQuality_match1_dY->at(mu[1]);
+    match1_pullY_2 = Muon_combinedQuality_match1_pullY->at(mu[1]);
+    match1_pullDyDz_2 = Muon_combinedQuality_match1_pullDyDz->at(mu[1]);
+    match2_dX_2 = Muon_combinedQuality_match2_dX->at(mu[1]);
+    match2_pullX_2 = Muon_combinedQuality_match2_pullX->at(mu[1]);
+    match2_pullDxDz_2 = Muon_combinedQuality_match2_pullDxDz->at(mu[1]);
+    match2_dY_2 = Muon_combinedQuality_match2_dY->at(mu[1]);
+    match2_pullY_2 = Muon_combinedQuality_match2_pullY->at(mu[1]);
+    match2_pullDyDz_2 = Muon_combinedQuality_match2_pullDyDz->at(mu[1]);
     //cout << "Ciao12" << endl;
     // mu3
     isQValid3 = Muon_isQualityValid->at(mu[2]);
@@ -665,7 +689,18 @@ void myAnalizer::TreeFin_Fill(TTree *tree, Double_t isMC, Int_t ind, Int_t mu_In
     cQ_gTP_3 = Muon_combinedQuality_glbTrackProbability->at(mu[2]);
     segmComp_3 = Muon_segmentCompatibility->at(mu[2]);
     caloComp_3 = Muon_caloCompatibility->at(mu[2]);
-    
+    match1_dX_3 = Muon_combinedQuality_match1_dX->at(mu[2]);
+    match1_pullX_3 = Muon_combinedQuality_match1_pullX->at(mu[2]);
+    match1_pullDxDz_3 = Muon_combinedQuality_match1_pullDxDz->at(mu[2]);
+    match1_dY_3 = Muon_combinedQuality_match1_dY->at(mu[2]);
+    match1_pullY_3 = Muon_combinedQuality_match1_pullY->at(mu[2]);
+    match1_pullDyDz_3 = Muon_combinedQuality_match1_pullDyDz->at(mu[2]);
+    match2_dX_3 = Muon_combinedQuality_match2_dX->at(mu[2]);
+    match2_pullX_3 = Muon_combinedQuality_match2_pullX->at(mu[2]);
+    match2_pullDxDz_3 = Muon_combinedQuality_match2_pullDxDz->at(mu[2]);
+    match2_dY_3 = Muon_combinedQuality_match2_dY->at(mu[2]);
+    match2_pullY_3 = Muon_combinedQuality_match2_pullY->at(mu[2]);
+    match2_pullDyDz_3 = Muon_combinedQuality_match2_pullDyDz->at(mu[2]);
     //cout << "Ciao13" << endl;
     double dimu12 = DimuonMass(mu[0], mu[1]);
     double dimu23 = DimuonMass(mu[1], mu[2]);
