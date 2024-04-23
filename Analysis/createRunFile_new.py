@@ -95,7 +95,7 @@ if args.anatype == 'tau3mu':
    if args.dataset == 'data' and args.run == '2022D-v1_0':
       path = '/lustre/cms/store/user/mbuonsan/ParkingDoubleMuonLowMass0/SkimTau3mu_2022eraD-v1_stream0_Mini_v3/240401_201734'
    if args.dataset == 'data' and args.run == '2022D-v1_1':
-      path = '/lustre/cms/store/user/mbuonsan/ParkingDoubleMuonLowMass1/SkimTau3mu_2022eraD-v1_stream1_Mini_v3/240401_201753'
+      path = '/lustre/cms/store/user/mbuonsan/ParkingDoubleMuonLowMass1/SkimTau3mu_2022eraD-v1_stream1_Mini_v3/240423_125441'
    if args.dataset == 'data' and args.run == '2022D-v1_2':
       path = '/lustre/cms/store/user/mbuonsan/ParkingDoubleMuonLowMass2/SkimTau3mu_2022eraD-v1_stream2_Mini_v3/240401_201813'
    if args.dataset == 'data' and args.run == '2022D-v1_3':
