@@ -9,7 +9,8 @@ from PhysicsTools.PatAlgos.selectionLayer1.muonSelector_cfi import *
 
 Tau3MuHLTFilter = copy.deepcopy(hltHighLevel)
 Tau3MuHLTFilter.throw = cms.bool(False)
-Tau3MuHLTFilter.HLTPaths = ["HLT_DoubleMu3_Trk_Tau3mu*", "HLT_DoubleMu3_TkMu_DsTau3Mu_v*", "HLT_DoubleMu3_Trk_Tau3mu_NoL1Mass_v*"]
+#Tau3MuHLTFilter.HLTPaths = ["HLT_DoubleMu3_Trk_Tau3mu*", "HLT_DoubleMu3_TkMu_DsTau3Mu_v*", "HLT_DoubleMu3_Trk_Tau3mu_NoL1Mass_v*"]
+Tau3MuHLTFilter.HLTPaths = ["HLT_DoubleMu3_Trk_Tau3mu*"]
 
 PatMuons = patMuons.clone(
     src = cms.InputTag("muons"),
