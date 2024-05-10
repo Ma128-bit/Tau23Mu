@@ -552,7 +552,7 @@ void BkgTreeMaker::analyze(const edm::Event& iEvent, const edm::EventSetup& iSet
         Muon_combinedQuality_glbTrackProbability.push_back(mu->combinedQuality().glbTrackProbability);
         
         //muon-segment matching variables
-        MiniAnaTau3Mu::fillMatchInfo(*mu);
+        BkgTreeMaker::fillMatchInfo(*mu);
         
         Muon_calEnergy_em.push_back(mu->calEnergy().em);
         Muon_calEnergy_emS9.push_back(mu->calEnergy().emS9);
