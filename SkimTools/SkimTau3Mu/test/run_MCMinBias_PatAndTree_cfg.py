@@ -22,14 +22,12 @@ process.maxEvents = cms.untracked.PSet( input = cms.untracked.int32(-1) )
 
 process.source = cms.Source("PoolSource",
     fileNames = cms.untracked.vstring(
-      #'root://xrootd-cms.infn.it//'
+      'root://xrootd-cms.infn.it//store/mc/Run3Summer22MiniAODv3/InclusiveDileptonMinBias_TuneCP5Plus_13p6TeV_pythia8/MINIAODSIM/Pilot_124X_mcRun3_2022_realistic_v12-v5/2810000/04505fde-4ac4-4320-95ef-254635c4f83d.root'
     ),
 )
 
-
 process.TFileService = cms.Service("TFileService",
                                    fileName = cms.string("TreeMC.root"))
-
 
 process.unpackedPatTrigger = cms.EDProducer("PATTriggerObjectStandAloneUnpacker",
     patTriggerObjectsStandAlone = cms.InputTag( 'slimmedPatTrigger' ),
@@ -37,25 +35,15 @@ process.unpackedPatTrigger = cms.EDProducer("PATTriggerObjectStandAloneUnpacker"
     unpackFilterLabels = cms.bool(True)
 )
 
-process.TreeMakerBkg = cms.EDAnalyzer("MiniAnaTau3Mu",
-                                      isMcLabel = cms.untracked.bool(True),
-                                      isAnaLabel = cms.untracked.bool(True),
-                                      is2016Label = cms.untracked.bool(True),
-                                      is2017Label = cms.untracked.bool(True),
-                                      is2018Label = cms.untracked.bool(True),
-                                      isBParkingLabel = cms.untracked.bool(False),
+process.TreeMakerBkg = cms.EDAnalyzer("BkgTreeMaker", 
                                       muonLabel=cms.InputTag("looseMuons"),
                                       photonLabel=cms.InputTag("slimmedPhotons"),
                                       VertexLabel=cms.InputTag("offlineSlimmedPrimaryVertices"),
                                       genParticleLabel=cms.InputTag("prunedGenParticles"),
                                       pileupSummary = cms.InputTag("slimmedAddPileupInfo"),
-                                      Cand3MuLabel=cms.InputTag("ThreeMuonsVtxKalmanFit"),
-                                      triggerResults = cms.InputTag("TriggerResults", "", "HLT"),
-                                      objects = cms.InputTag("unpackedPatTrigger"),
                                       AlgInputTag = cms.InputTag( "gtStage2Digis" ),
                                       algInputTag = cms.InputTag( "gtStage2Digis" ),
-                                      extInputTag = cms.InputTag( "gtStage2Digis" )
-                                      
+                                      extInputTag = cms.InputTag( "gtStage2Digis" )                             
 )
 
 process.Tau3MuSkim = cms.Path(process.ThreeMuonSelSeq*
