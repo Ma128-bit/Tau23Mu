@@ -37,7 +37,6 @@ process.unpackedPatTrigger = cms.EDProducer("PATTriggerObjectStandAloneUnpacker"
 
 process.TreeMakerBkg = cms.EDAnalyzer("BkgTreeMaker", 
                                       muonLabel=cms.InputTag("looseMuons"),
-                                      photonLabel=cms.InputTag("slimmedPhotons"),
                                       VertexLabel=cms.InputTag("offlineSlimmedPrimaryVertices"),
                                       genParticleLabel=cms.InputTag("prunedGenParticles"),
                                       pileupSummary = cms.InputTag("slimmedAddPileupInfo"),
