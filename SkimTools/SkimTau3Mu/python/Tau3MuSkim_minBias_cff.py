@@ -61,7 +61,7 @@ ThreeMuonSelSeq = cms.Sequence(InitialPlots *
                                looseMuons *
                                PlotsAfterLooseMuon *
                                OneMuonsFilter *
-                               PlotsAfter1Muons *
+                               PlotsAfter1Muons
                                )
 
 
