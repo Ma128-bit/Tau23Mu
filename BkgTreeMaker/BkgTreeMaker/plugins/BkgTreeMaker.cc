@@ -2,13 +2,13 @@
 // Package:    BkgTreeMaker/BkgTreeMaker
 // Class:      BkgTreeMaker
 //
-// class BkgTreeMaker BkgTreeMaker.cc BkgTreeMaker/BkgTreeMaker/plugins/BkgTreeMaker.cc
+/* class BkgTreeMaker BkgTreeMaker.cc BkgTreeMaker/BkgTreeMaker/plugins/BkgTreeMaker.cc
  
  Description: [one line class summary]
  
  Implementation:
  [Notes on implementation]
- */
+*/
 //
 // Original Author:  venditti
 //         Created:  Tue, 18 Dec 2018 09:30:06 GMT
