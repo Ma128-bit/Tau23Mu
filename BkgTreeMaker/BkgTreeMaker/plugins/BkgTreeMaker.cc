@@ -303,9 +303,6 @@ void BkgTreeMaker::analyze(const edm::Event& iEvent, const edm::EventSetup& iSet
     Handle<BXVector<GlobalAlgBlk>> alg;
     iEvent.getByToken(algToken_,alg);
     
-    Handle<BXVector<l1t::Muon> > gmuons;
-    iEvent.getByToken(l1muonsToken_, gmuons);
-    
     edm::ESHandle<TransientTrackBuilder> theTransientTrackBuilder = iSetup.getHandle(theTransientTrackBuilder_);
     
     edm::Handle<std::vector<pat::PackedCandidate> > PFCands;
