@@ -138,7 +138,6 @@ private:
     edm::EDGetToken algToken_;
     edm::EDGetToken algTok_;
     edm::ESGetToken<TransientTrackBuilder, TransientTrackRecord> theTransientTrackBuilder_;
-    HLTConfigProvider hltConfig;
     edm::Service<TFileService> fs;
     l1t::L1TGlobalUtil* gtUtil_;
     edm::InputTag algInputTag_;
