@@ -328,7 +328,7 @@ void BkgTreeMaker::analyze(const edm::Event& iEvent, const edm::EventSetup& iSet
     PVCollection_Size = vertices->size();
     
     //             ************** Fill Genparticles **************
-    if(isMc){
+    if(true){
         uint j=0;
         uint ngenP=genParticles->size();
         std::vector<int> genPidx;
