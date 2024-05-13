@@ -312,14 +312,14 @@ void BkgTreeMaker::analyze(const edm::Event& iEvent, const edm::EventSetup& iSet
     edm::Handle<reco::BeamSpot> beamSpotHandle;
     iEvent.getByToken(token_BeamSpot, beamSpotHandle);
     const reco::BeamSpot& beamspot = *beamSpotHandle.product();
-    double x_bs = 0.0;
-    double y_bs = 0.0;
-    double z_bs = 0.0;
+    //double x_bs = 0.0;
+    //double y_bs = 0.0;
+    //double z_bs = 0.0;
     if ( beamSpotHandle.isValid() ) {
         beamSpot = *beamSpotHandle;
-        x_bs = beamSpot.x0();
-        y_bs = beamSpot.y0();
-        z_bs = beamSpot.z0();
+        //x_bs = beamSpot.x0();
+        //y_bs = beamSpot.y0();
+        //z_bs = beamSpot.z0();
     } else {
         cout << "No beam spot available from EventSetup \n" << endl;
     }
