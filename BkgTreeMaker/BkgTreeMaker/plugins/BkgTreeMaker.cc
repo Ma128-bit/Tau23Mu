@@ -953,6 +953,7 @@ void BkgTreeMaker::endJob() {
     tree_->Write();
 }
 void BkgTreeMaker::fillDescriptions(edm::ConfigurationDescriptions& descriptions) {
+    edm::ParameterSetDescription desc;
     desc.setUnknown();
     descriptions.addDefault(desc);
 }
