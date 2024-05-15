@@ -151,13 +151,13 @@ void myAnalizer::Loop_Tau3mu(TString type, TString datasetName)
             if(!good_muonID) continue;
             else triplEff_counter[3] = true;
             
-            // CUT 3: Sign BS-SV>=2 && deltaR<0.8 && |deltaZ|<0.5
-            if( FlightDistBS_SV_Significance->at(j) < 2 ) continue;
-            if( !(isPairDeltaRGood(j, 0.8)) ) continue;
+            // CUT 3: Sign BS-SV>=3.5 && deltaR<0.6 && |deltaZ|<2.5
+            if( FlightDistBS_SV_Significance->at(j) < 3.5 ) continue;
+            if( !(isPairDeltaRGood(j, 0.6)) ) continue;
             double vz1 = Muon_vz->at(mu[0]);
             double vz2 = Muon_vz->at(mu[1]);
             double vz3 = Muon_vz->at(mu[2]);
-            if( !(isPairDeltaZGood(vz1, vz2, vz3, 0.5) )) continue;
+            if( !(isPairDeltaZGood(vz1, vz2, vz3, 2.5) )) continue;
             
             triplEff_counter[4] = true;
             
