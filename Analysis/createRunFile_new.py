@@ -49,7 +49,7 @@ else:
 
 if args.anatype == 'tau3mu':
    if args.dataset == 'data' and args.run == 'Minbias':
-      path = '/lustre/cms/store/user/mbuonsan/InclusiveDileptonMinBias_TuneCP5Plus_13p6TeV_pythia8/SkimTau3mu_MCMinBias_Mini/240206_113714'
+      path = '/lustre/cms/store/user/mbuonsan/InclusiveDileptonMinBias_TuneCP5Plus_13p6TeV_pythia8/SkimTau3mu_MCMinBias_Mini/240513_130421'
    #### 2018
    if args.dataset == 'data' and args.run == '2018D':
       path = '/lustre/cms/store/user/fsimone/DoubleMuonLowMass/SkimTau3Mu_UL2018_Run2018D_Mini_yesHLT/240202_184932' 
