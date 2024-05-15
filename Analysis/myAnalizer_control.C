@@ -53,8 +53,7 @@ void myAnalizer_control::Loop_DsPhiPi(TString type, TString datasetName)
     TH1I *hCutEffEvt = new TH1I("CutEff_NEvents", "CutEff_NEvents", NCUTS, 0.5, (NCUTS+0.5));
 
     cout<< "datasetName: " << datasetName << endl;
-    if(datasetName.Contains("2022")) isMC=0;
-    else if(datasetName.Contains("2023")) isMC=0;
+    if(datasetName.Contains("2022") || datasetName.Contains("2023")) isMC=0;
     else isMC=5;
     
 
