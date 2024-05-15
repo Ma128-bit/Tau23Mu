@@ -54,7 +54,7 @@ void myAnalizer_control::Loop_DsPhiPi(TString type, TString datasetName)
 
     cout<< "datasetName: " << datasetName << endl;
     if(datasetName.Contains("2022")) isMC=0;
-    elif(datasetName.Contains("2023")) isMC=0;
+    else if(datasetName.Contains("2023")) isMC=0;
     else isMC=5;
     
 
