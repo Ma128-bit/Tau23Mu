@@ -443,12 +443,12 @@ d0sig_max) d0sig_max = temp[k];
     etamu3 = Tr_Eta->at(mu_Ind[2]);
     phimu3 = Tr_Phi->at(mu_Ind[2]);
     
-    dispMu1 = TMath::Sqrt(TMath::Power(BS_x->at(mu_Ind[0]) - Muon_vx->at(mu[0]),2) + TMath::Power(BS_y->at(mu_Ind[0]) - Muon_vy->at(mu[0]),2) + TMath::Power(BS_z->at(mu_Ind[0]) - Muon_vz->at(mu[0]),2))
-    dispMu2 = TMath::Sqrt(TMath::Power(BS_x->at(mu_Ind[1]) - Muon_vx->at(mu[1]),2) + TMath::Power(BS_y->at(mu_Ind[1]) - Muon_vy->at(mu[1]),2) + TMath::Power(BS_z->at(mu_Ind[1]) - Muon_vz->at(mu[1]),2))
-    //dispMu3 = TMath::Sqrt(TMath::Power(BS_x->at(mu_Ind[2]) - Muon_vx->at(mu[2]),2) + TMath::Power(BS_y->at(mu_Ind[2]) - Muon_vy->at(mu[2]),2) + TMath::Power(BS_z->at(mu_Ind[2]) - Muon_vz->at(mu[1]),2))
-    xydispMu1 = TMath::Sqrt(TMath::Power(BS_x->at(mu_Ind[0]) - Muon_vx->at(mu[0]),2) + TMath::Power(BS_y->at(mu_Ind[0]) - Muon_vy->at(mu[0]),2))
-    xydispMu2 = TMath::Sqrt(TMath::Power(BS_x->at(mu_Ind[1]) - Muon_vx->at(mu[1]),2) + TMath::Power(BS_y->at(mu_Ind[1]) - Muon_vy->at(mu[1]),2))
-    //xydispMu3 = TMath::Sqrt(TMath::Power(BS_x->at(mu_Ind[2]) - Muon_vx->at(mu[2]),2) + TMath::Power(BS_y->at(mu_Ind[2]) - Muon_vy->at(mu[2]),2))
+    dispMu1 = TMath::Sqrt(TMath::Power(BS_x->at(mu_Ind[0]) - Muon_vx->at(mu[0]),2) + TMath::Power(BS_y->at(mu_Ind[0]) - Muon_vy->at(mu[0]),2) + TMath::Power(BS_z->at(mu_Ind[0]) - Muon_vz->at(mu[0]),2));
+    dispMu2 = TMath::Sqrt(TMath::Power(BS_x->at(mu_Ind[1]) - Muon_vx->at(mu[1]),2) + TMath::Power(BS_y->at(mu_Ind[1]) - Muon_vy->at(mu[1]),2) + TMath::Power(BS_z->at(mu_Ind[1]) - Muon_vz->at(mu[1]),2));
+    //dispMu3 = TMath::Sqrt(TMath::Power(BS_x->at(mu_Ind[2]) - Muon_vx->at(mu[2]),2) + TMath::Power(BS_y->at(mu_Ind[2]) - Muon_vy->at(mu[2]),2) + TMath::Power(BS_z->at(mu_Ind[2]) - Muon_vz->at(mu[1]),2));
+    xydispMu1 = TMath::Sqrt(TMath::Power(BS_x->at(mu_Ind[0]) - Muon_vx->at(mu[0]),2) + TMath::Power(BS_y->at(mu_Ind[0]) - Muon_vy->at(mu[0]),2));
+    xydispMu2 = TMath::Sqrt(TMath::Power(BS_x->at(mu_Ind[1]) - Muon_vx->at(mu[1]),2) + TMath::Power(BS_y->at(mu_Ind[1]) - Muon_vy->at(mu[1]),2));
+    //xydispMu3 = TMath::Sqrt(TMath::Power(BS_x->at(mu_Ind[2]) - Muon_vx->at(mu[2]),2) + TMath::Power(BS_y->at(mu_Ind[2]) - Muon_vy->at(mu[2]),2));
 
     if(debugMode) cout << "Ciao5_bis" << endl;
     nStationsMu1 = Muon_numberOfMatchedStations->at(mu[0]);
