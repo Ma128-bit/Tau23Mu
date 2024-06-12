@@ -804,6 +804,14 @@ void myAnalizer::TreeFin_Init(TTree *&tree, Double_t &isMC, Double_t &lumi, Doub
     tree->Branch("Ptmu3", &Ptmu3);
     tree->Branch("Etamu3", &etamu3);
     tree->Branch("Phimu3", &phimu3);
+
+    tree->Branch("dispMu1", &dispMu1);
+    tree->Branch("dispMu2", &dispMu2);
+    tree->Branch("dispMu3", &dispMu3);
+    tree->Branch("xydispMu1", &xydispMu1);
+    tree->Branch("xydispMu2", &xydispMu2);
+    tree->Branch("xydispMu3", &xydispMu3);
+
     tree->Branch("P_tripl", &P_trip);
     tree->Branch("Pt_tripl", &Pt_trip);
     tree->Branch("Eta_tripl", &eta_trip);
